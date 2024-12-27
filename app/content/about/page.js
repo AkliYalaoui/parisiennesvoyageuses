@@ -2,6 +2,10 @@ import Image from "next/image";
 import { FaInstagramSquare } from "react-icons/fa";
 import Link from "next/link";
 
+export const metadata = {
+  title: 'About',
+};
+
 const AboutPage = () => {
   const adventures = [
     {

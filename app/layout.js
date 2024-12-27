@@ -9,7 +9,10 @@ const nunito = Nunito({
 
 
 export const metadata = {
-  title: "Parisiennes Voyageuses | Official Home Page",
+  title: {
+    template: "Parisiennes Voyageuses | %s",
+    default: "Parisiennes Voyageuses | Official Home Page",
+  },
   description: "Parisiennes Voyageuses Official Website",
   keywords : "Instagram, Traveling, Voyage, Reels, Paris, Twins"
 };
