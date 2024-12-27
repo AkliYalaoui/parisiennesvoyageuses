@@ -6,7 +6,6 @@ import { FaImage, FaSave, FaTimes } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import Editor from "@/app/components/Editor";
 
-// Set up the Create Blog Page
 const CreateBlog = () => {
   const supabase = createClient();
   const router = useRouter();
@@ -15,8 +14,8 @@ const CreateBlog = () => {
   const [imageUrl, setImageUrl] = useState(null);
   const [tags, setTags] = useState("");
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  // Handle image upload to Supabase
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
@@ -24,55 +23,49 @@ const CreateBlog = () => {
     setLoading(true);
     const fileName = `${Date.now()}_${file.name}`;
     const { data, error } = await supabase.storage
-      .from("blog-images")
+      .from("posts_cover")
       .upload(fileName, file);
 
     if (error) {
-      console.error("Image upload failed", error);
+      setError("Image upload failed. Please try again.");
       setLoading(false);
       return;
     }
 
-    const url = supabase.storage
-      .from("blog-images")
-      .getPublicUrl(fileName).publicURL;
+    const url = supabase.storage.from("posts_cover").getPublicUrl(fileName)
+      .data?.publicUrl;
     setImageUrl(url);
     setLoading(false);
   };
 
-  // Handle blog submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!title || !content) {
-      alert("Please fill in both title and content.");
+      setError("Please fill in both the title and content.");
       return;
     }
 
     setLoading(true);
 
-    // Insert the new blog post into the Supabase database
     const { error } = await supabase.from("posts").insert([
       {
         title,
         content,
         image_url: imageUrl,
-        tags: tags.split(",").map((tag) => tag.trim()),
-        created_at: new Date().toISOString(),
+        tags,
       },
     ]);
 
     setLoading(false);
 
     if (error) {
-      console.error("Error creating blog:", error);
+      setError("Error creating blog. Please try again.");
       return;
     }
 
-    // Redirect to the blogs list or dashboard after submission
     router.push("/admin/dashboard/blogs");
   };
 
-  // Generate HTML for the preview
   const generatePreviewHTML = () => `
     <!DOCTYPE html>
     <html lang="en">
@@ -81,55 +74,65 @@ const CreateBlog = () => {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <style>
         body {
-          font-family: Arial, sans-serif;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
           line-height: 1.6;
           padding: 20px;
-        }
-        h1 {
           color: #333;
         }
-        p {
+        h1 {
+          color: #1d4ed8;
+        }
+        p, ul, blockquote {
           margin: 10px 0;
         }
         img {
           max-width: 100%;
           height: auto;
+          border-radius: 8px;
         }
         blockquote {
           font-style: italic;
           margin: 20px 0;
           padding: 10px 20px;
-          border-left: 5px solid #ccc;
-          background: #f9f9f9;
+          border-left: 5px solid #3b82f6;
+          background: #eef2ff;
         }
         ul {
           padding-left: 20px;
-          margin: 10px 0;
-        }
-        ul li {
           list-style-type: disc;
         }
       </style>
     </head>
     <body>
+    ${
+      !(title || imageUrl || content || tags)
+        ? "<p>Your preview will show here</p>"
+        : ""
+    }
       <h1>${title}</h1>
       ${imageUrl ? `<img src="${imageUrl}" alt="Blog cover">` : ""}
       ${content}
-      <p><strong>Tags:</strong> ${tags}</p>
+      ${tags ? "<p><strong>Tags:</strong>" + tags + "</p>" : ""}
     </body>
     </html>
   `;
 
   return (
-    <div className="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-lg">
-      <h1 className="text-2xl font-semibold mb-4 text-amber-950">
+    <div className="max-w-4xl mx-auto p-6 bg-gradient-to-r from-gray-100 to-white shadow-lg rounded-lg">
+      <h1 className="text-3xl font-bold text-blue-700 mb-6">
         Create a New Blog
       </h1>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        {/* Blog Title */}
+      {error && (
+        <div className="mb-4 p-3 bg-red-100 text-red-700 rounded-md">
+          {error}
+        </div>
+      )}
+
+      <form onSubmit={handleSubmit} className="space-y-6">
+        {/* Title */}
         <div>
-          <label htmlFor="title" className="block text-gray-700 font-medium">
+          <label htmlFor="title" className="block text-gray-700 font-semibold">
             Title *
           </label>
           <input
@@ -137,85 +140,89 @@ const CreateBlog = () => {
             id="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="mt-2 p-2 w-full border border-gray-300 rounded-md"
+            className="w-full mt-2 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
             placeholder="Enter blog title"
-            required
           />
         </div>
 
-        {/* Blog Image Upload */}
+        {/* Image Upload */}
         <div>
-          <label className="block text-gray-700 font-medium">
-            Upload Cover Image
+          <label className="block text-gray-700 font-semibold">
+            Cover Image
           </label>
-          <input
-            type="file"
-            onChange={handleImageUpload}
-            accept="image/*"
-            className="mt-2"
-          />
+          <div className="flex items-center mt-2">
+            <input
+              type="file"
+              onChange={handleImageUpload}
+              accept="image/*"
+              className="flex-grow"
+            />
+            {loading && (
+              <span className="ml-4 text-gray-500 animate-pulse">
+                Uploading...
+              </span>
+            )}
+          </div>
           {imageUrl && (
-            <div className="mt-2">
-              <img
-                src={imageUrl}
-                alt="Blog cover"
-                className="max-w-full h-auto"
-              />
+            <div className="mt-4">
+              <img src={imageUrl} alt="Blog cover" className="rounded-md" />
             </div>
           )}
-          {loading && <p className="text-sm text-gray-500">Uploading...</p>}
         </div>
 
-        {/* Blog Content */}
+        {/* Content */}
         <div>
-          <label htmlFor="content" className="block text-gray-700 font-medium">
+          <label
+            htmlFor="content"
+            className="block text-gray-700 font-semibold"
+          >
             Content *
           </label>
           <Editor value={content} onChange={setContent} />
         </div>
 
-        {/* Tags or Categories */}
+        {/* Tags */}
         <div>
-          <label htmlFor="tags" className="block text-gray-700 font-medium">
-            Tags (comma separated)
+          <label htmlFor="tags" className="block text-gray-700 font-semibold">
+            Tags
           </label>
           <input
             type="text"
             id="tags"
             value={tags}
             onChange={(e) => setTags(e.target.value)}
-            className="mt-2 p-2 w-full border border-gray-300 rounded-md"
-            placeholder="Enter tags (e.g., Travel, Adventure)"
+            className="w-full mt-2 p-3 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Comma-separated tags (e.g., Tech, Programming)"
           />
         </div>
 
-        {/* Submit Buttons */}
-        <div className="flex justify-between">
+        {/* Buttons */}
+        <div className="flex items-center justify-between mt-6">
           <button
             type="submit"
             disabled={loading}
-            className="flex items-center text-white bg-amber-600 hover:bg-amber-700 px-4 py-2 rounded-md"
+            className="flex items-center bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:bg-gray-400"
           >
-            <FaSave size={16} className="mr-2" />
+            <FaSave className="mr-2" />
             {loading ? "Saving..." : "Publish Blog"}
           </button>
-
           <button
             type="button"
             onClick={() => router.push("/admin/dashboard/blogs")}
-            className="flex items-center text-red-600 hover:text-red-700 px-4 py-2 rounded-md"
+            className="flex items-center text-red-600 px-4 py-2 rounded-md hover:text-red-700"
           >
-            <FaTimes size={16} className="mr-2" />
+            <FaTimes className="mr-2" />
             Cancel
           </button>
         </div>
       </form>
-      {/* Blog Preview */}
+
+      {/* Preview */}
       <div className="mt-10">
-        <h2 className="text-xl font-semibold mb-4 text-gray-700">Preview</h2>
+        <h2 className="text-2xl font-bold text-gray-700 mb-4">Preview</h2>
         <iframe
           srcDoc={generatePreviewHTML()}
-          className="w-full h-96 border border-gray-300 rounded-md"
+          className="w-full h-96 border rounded-md"
           title="Blog Preview"
         ></iframe>
       </div>
