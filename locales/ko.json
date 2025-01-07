@@ -1,0 +1,63 @@
+{
+    "NavBar": {
+      "homePage": "홈",
+      "travelPage": "여행",
+      "blogPage": "블로그",
+      "aboutPage": "소개",
+      "contactPage": "문의하기"
+    },
+    "Hero": {
+      "headline": "당신의 다음 모험이 여기서 시작됩니다",
+      "subHeadline": "여행의 마법을 담고, 세계에서 가장 매혹적인 여행지의 비밀을 발견하세요.",
+      "followUs": "인스타그램에서 팔로우하기",
+      "shopGuide": "우리의 여행 가이드 쇼핑하기"
+    },
+    "LatestReels": {
+      "title": "우리의 최신 릴을 확인하세요"
+    },
+    "Gallery": {
+      "title": "우리의 베스트 샷"
+    },
+    "Guides": {
+      "title": "파리의 마법을 발견하세요",
+      "subTitle": "빛의 도시에서 최고의 명소를 탐험하고, 현지 음식을 맛보고, 파리의 문화를 만끽하세요.",
+      "firsCardTitle": "파리 맛보기",
+      "firstCardDesc": "세계 최고 수준의 크로아상, 빵집, 커피를 즐겨보세요.",
+      "secondCardTitle": "아이코닉한 명소",
+      "secondCardDesc": "에펠탑, 노트르담, 파리의 매력적인 거리를 발견하세요.",
+      "thirdCardTitle": "하루 계획하기",
+      "thirdCardDesc": "완벽한 파리 여행을 위한 가이드를 따라보세요.",
+      "button": "지금 파리 가이드 받기",
+      "note": "*한정된 시간 동안: 오늘 여행을 계획하고 독점적인 정보를 받으세요!"
+    },
+    "Blog": {
+      "title": "우리의 여행에서 배우기",
+      "desc": "세계 여러 나라를 여행하며 얻은 팁과 이야기, 독특한 경험들을 공유합니다.",
+      "button": "블로그 읽기"
+    },
+    "Follow": {
+      "title": "인스타그램에서 우리를 팔로우하세요",
+      "subTitle": "우리의 렌즈를 통해 세상을 경험하세요! 여행 사진, 비하인드 장면, 잊을 수 없는 이야기들을 공유합니다.",
+      "firsCardTitle": "여행 사진",
+      "firstCardDesc": "아이코닉한 장소와 숨은 명소의 숨 막히는 사진을 감상하세요.",
+      "secondCardTitle": "행복한 순간들",
+      "secondCardDesc": "우리 여행에서 특별한 순간들을 공유해요.",
+      "thirdCardTitle": "실시간 업데이트",
+      "thirdCardDesc": "우리의 여행을 실시간으로 팔로우하고 모험을 함께하세요.",
+      "button": "인스타그램에서 팔로우하기"
+    },
+    "Footer": {
+      "title": "우리 소개",
+      "subTitle": "우리는 여러분의 다음 여행을 위한 영감을 주기 위해 이야기, 팁, 경험을 공유하는 열정적인 쌍둥이 여행자들입니다.",
+      "quick": "빠른 링크",
+      "travel": "여행 가이드",
+      "blog": "블로그",
+      "about": "우리 소개",
+      "contact": "문의하기",
+      "contactTitle": "연락처",
+      "follow": "팔로우하기",
+      "question": "질문이 있거나 협업을 원하시나요? 저희에게 연락해주세요!",
+      "rights": "모든 권리 보유."
+    }
+  }
+  

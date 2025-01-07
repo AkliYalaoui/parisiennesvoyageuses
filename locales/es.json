@@ -1,0 +1,63 @@
+{
+    "NavBar": {
+      "homePage": "Inicio",
+      "travelPage": "Viaje",
+      "blogPage": "Blog",
+      "aboutPage": "Acerca de",
+      "contactPage": "Contáctanos"
+    },
+    "Hero": {
+      "headline": "Tu próxima aventura comienza aquí",
+      "subHeadline": "Síguenos mientras capturamos la magia del viaje y descubrimos los secretos de los destinos más fascinantes del mundo.",
+      "followUs": "Síguenos en Instagram",
+      "shopGuide": "Compra nuestra guía de viaje"
+    },
+    "LatestReels": {
+      "title": "Mira nuestros últimos reels"
+    },
+    "Gallery": {
+      "title": "Nuestras mejores fotos"
+    },
+    "Guides": {
+      "title": "Descubre la magia de París",
+      "subTitle": "Tu guía definitiva de la Ciudad de la Luz. Explora lugares icónicos, saborea la comida local e inmersiónate en la cultura parisina.",
+      "firsCardTitle": "Disfruta de París",
+      "firstCardDesc": "Disfruta de los mejores croissants, panaderías y cafés de clase mundial.",
+      "secondCardTitle": "Lugares Icónicos",
+      "secondCardDesc": "Descubre la Torre Eiffel, Notre-Dame y las encantadoras calles de París.",
+      "thirdCardTitle": "Planifica tu día",
+      "thirdCardDesc": "Sigue nuestra guía para un día perfecto en París lleno de aventuras.",
+      "button": "Obtén tu guía de París ahora",
+      "note": "*Oferta por tiempo limitado: ¡Planifica tu viaje hoy y obtén información exclusiva!"
+    },
+    "Blog": {
+      "title": "Aprende de nuestro viaje",
+      "desc": "Únete a nosotros en una aventura cautivadora por el mundo. Descubre nuestros consejos de viaje, historias y experiencias únicas explorando diferentes países.",
+      "button": "Lee nuestro blog"
+    },
+    "Follow": {
+      "title": "Únete a nosotros en Instagram",
+      "subTitle": "¡Experimenta el mundo a través de nuestra lente! Síguenos mientras compartimos fotos impresionantes de viajes, momentos detrás de escena y relatos inolvidables.",
+      "firsCardTitle": "Fotos de Viaje",
+      "firstCardDesc": "Inspírate con fotos impresionantes de lugares icónicos y gemas ocultas.",
+      "secondCardTitle": "Momentos de Alegría",
+      "secondCardDesc": "Descubre historias conmovedoras y momentos que hacen que nuestros viajes sean especiales.",
+      "thirdCardTitle": "Actualizaciones en Vivo",
+      "thirdCardDesc": "Sigue nuestro viaje en tiempo real y mantente conectado con nuestras aventuras.",
+      "button": "Síguenos en Instagram"
+    },
+    "Footer": {
+      "title": "Acerca de nosotros",
+      "subTitle": "Somos viajeros gemelos apasionados que compartimos historias, consejos y experiencias para inspirar tu próxima aventura.",
+      "quick": "Enlaces rápidos",
+      "travel": "Guía de viaje",
+      "blog": "Blog",
+      "about": "Acerca de nosotros",
+      "contact": "Contáctanos",
+      "contactTitle": "Contacto",
+      "follow": "Síguenos",
+      "question": "¿Tienes preguntas o quieres colaborar? ¡Contáctanos!",
+      "rights": "Todos los derechos reservados."
+    }
+  }
+  

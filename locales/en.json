@@ -1,0 +1,62 @@
+{
+    "NavBar": {
+        "homePage": "Home",
+        "travelPage": "Travel",
+        "blogPage": "Blog",
+        "aboutPage": "About",
+        "contactPage": "Contact Us"
+    },
+    "Hero": {
+        "headline": "Your Next Adventure Starts Here",
+        "subHeadline": "Follow us as we capture the magic of travel and uncover the secrets of the world's most enchanting destinations.",
+        "followUs": "Follow Us on Instagram",
+        "shopGuide": "Shop Our Travel Guide"
+    },
+    "LatestReels":{
+        "title":"Watch our latest reels"
+    },
+    "Gallery":{
+        "title":"Our best shots"
+    },
+    "Guides":{
+        "title":"Discover the Magic of Paris",
+        "subTitle" : "Your ultimate guide to the City of Light. Explore iconic landmarks, savor local cuisine, and immerse yourself in Parisian culture.",
+        "firsCardTitle": "Savor Paris",
+        "firstCardDesc": "Indulge in the best croissants, bakeries, and world-class coffees.",
+        "secondCardTitle": "Iconic Landmarks",
+        "secondCardDesc": "Discover the Eiffel Tower, Notre-Dame, and charming streets of Paris.",
+        "thirdCardTitle": "Plan Your Day",
+        "thirdCardDesc": "Follow our guide for a perfect day in Paris filled with adventure.",
+        "button": "Get Your Paris Guide Now",
+        "note" : "*Limited-time offer: Plan your trip today and get exclusive insights!"
+    },
+    "Blog":{
+        "title": "Learn from Our Journey",
+        "desc": "Join us on a captivating adventure across the globe. Discover our travel tips, stories, and unique experiences from exploring different countries.",
+        "button" : "Read Our Blog"
+    },
+    "Follow":{
+        "title": "Join Us on Instagram",
+        "subTitle" : "Experience the world through our lens! Follow us as we share stunning travel photos, behind-the-scenes moments, and unforgettable stories.",
+        "firsCardTitle": "Travel Photos",
+        "firstCardDesc": "Get inspired by breathtaking shots of iconic places and hidden gems.",
+        "secondCardTitle": "Moments of Joy",
+        "secondCardDesc": "Discover heartwarming stories and moments that make our trips special.",
+        "thirdCardTitle": "Live Updates",
+        "thirdCardDesc": "Follow our journey in real time and stay connected to our adventures.",
+        "button": "Follow Us on Instagram"
+    },
+    "Footer":{
+        "title": "About Us",
+        "subTitle": "We are passionate twin travelers sharing stories, tips, and experiences to inspire your next adventure.",
+        "quick": "Quick Links",
+        "travel": "Travel Guide",
+        "blog" :"Blog",
+        "about": "About Us",
+        "contact": "Contact Us",
+        "contactTitle": "Contact",
+        "follow": "Follow Us",
+        "question": "Have questions or want to collaborate? Reach out to us!",
+        "rights": "All Rights Reserved."
+    }
+}

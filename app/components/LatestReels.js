@@ -1,4 +1,5 @@
 import Reel from "./Reel";
+import {getTranslations} from 'next-intl/server'
 
 const fetchReels = async () => {
   const { INSTAGRAM_ACCESS_TOKEN, INSTAGRAM_USER_ID, INSTAGRAM_USER_NAME } =
@@ -16,11 +17,11 @@ const fetchReels = async () => {
 };
 
 const LatestReels = async () => {
-  const reels = await fetchReels();
+  const t = await getTranslations('LatestReels');
   return (
     <section className="container mx-auto p-4 py-16">
       <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-orange-950 text-center">
-        Watch our latest reels
+        {t('title')}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-8">
         {[1, 2, 3, 4].map((n) => (

@@ -1,9 +1,19 @@
-import { updateSession } from "./app/config/middlware"
+import createMiddleware from 'next-intl/middleware';
+import { updateSession } from "./app/config/authMiddlware";
+import {routing} from './i18n/routing';
+
+const intlMiddleware = createMiddleware(routing);
 
 export async function middleware(request) {
-  return await updateSession(request)
+  if (request.nextUrl.pathname.startsWith('/admin')) {
+    return await updateSession(request);
+  } else if (request.nextUrl.pathname.startsWith('/')) {
+    return intlMiddleware(request);
+  }
+  return NextResponse.next()
 }
 
+
 export const config = {
-  matcher: '/admin/dashboard/:path*',
-}
+  matcher:  ['/', '/(fr|en|zh|ko|es|de|it|pt|ja|ar)/:path*', "/admin/dashboard/:path*"],
+};

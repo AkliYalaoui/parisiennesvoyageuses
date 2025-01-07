@@ -47,7 +47,7 @@ const TravelGuides = () => {
               Learn More
             </a>
             <Link
-              href="/buy/essential-paris-guide"
+              href="/content/buy/essential-paris-guide"
               className="bg-amber-200 text-amber-950 py-2 px-4 rounded-lg hover:bg-amber-100 transition"
             >
               Buy Now
@@ -73,7 +73,7 @@ const TravelGuides = () => {
               Learn More
             </a>
             <Link
-              href="/buy/hidden-paris-guide"
+              href="/content/buy/hidden-paris-guide"
               className="bg-amber-200 text-amber-950 py-2 px-4 rounded-lg hover:bg-amber-100 transition"
             >
               Buy Now
@@ -99,7 +99,7 @@ const TravelGuides = () => {
               Learn More
             </a>
             <Link
-              href="/buy/luxury-paris-guide"
+              href="/content/buy/luxury-paris-guide"
               className="bg-amber-200 text-amber-950 py-2 px-4 rounded-lg hover:bg-amber-100 transition"
             >
               Buy Now

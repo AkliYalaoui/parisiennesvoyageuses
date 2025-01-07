@@ -1,11 +1,31 @@
 "use client";
 
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 import { FaInstagramSquare, FaPinterestSquare } from "react-icons/fa";
 import { useState } from "react";
+import { usePathname } from "@/i18n/routing";
+import Image from "next/image";
 
-const NavBar = () => {
+// Define available languages with flags
+const languages = [
+  { code: "en", name: "English" }, // UK flag
+  { code: "fr", name: "Français" }, // France flag
+  { code: "ko", name: "한국어" }, // South Korea flag
+  { code: "zh", name: "中文" }, // China flag
+  { code: "de", name: "Deutsch" }, // Germany flag
+  { code: "es", name: "Español" }, // Spain flag
+  { code: "it", name: "Italiano" }, // Italy flag
+  { code: "ja", name: "日本語" }, // Japan flag
+  { code: "ar", name: "العربية" }, // Arabic flag
+  { code: "pt", name: "Português" }, // Portugal flag
+];
+
+const NavBar = ({ locale }) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [languageMenuOpen, setLanguageMenuOpen] = useState(false);
+  const t = useTranslations("NavBar");
+  const pathname = usePathname();
 
   return (
     <div className="fixed top-0 left-0 w-full z-10 bg-orange-950">
@@ -26,22 +46,71 @@ const NavBar = () => {
 
           {/* Links for Larger Screens */}
           <ul className="hidden md:flex flex-row items-center space-x-6">
-            <li>
-              <Link href="/">Home</Link>
+            <li className={locale === "ar" ? "ml-6" : ""}>
+              <Link href="/">{t("homePage")}</Link>
             </li>
             <li>
-              <Link href="/content/guide">Travel</Link>
+              <Link href="/guide">{t("travelPage")}</Link>
             </li>
             <li>
-              <Link href="/content/blog">Blog</Link>
+              <Link href="/blog">{t("blogPage")}</Link>
             </li>
             <li>
-              <Link href="/content/about">About</Link>
+              <Link href="/about">{t("aboutPage")}</Link>
             </li>
             <li>
-              <Link href="/content/contact">Contact Us</Link>
+              <Link href="/contact">{t("contactPage")}</Link>
             </li>
           </ul>
+
+          {/* Language Selector */}
+          <div className="relative">
+            <button
+              className="flex items-center space-x-2 focus:outline-none"
+              onClick={() => setLanguageMenuOpen(!languageMenuOpen)}
+            >
+              <Image
+                alt={languages.find((lang) => lang.code === locale)?.name}
+                src={`/flags/${
+                  languages.find((lang) => lang.code === locale)?.code
+                }.png`}
+                width={30}
+                height={30}
+                className={locale === "ar" ? "ml-2" : ""}
+              />
+              <span>
+                {languages.find((lang) => lang.code === locale)?.name}
+              </span>
+            </button>
+            {languageMenuOpen && (
+              <ul className="absolute bg-white text-black rounded shadow-lg mt-2 w-32">
+                {languages.map(({ code, name, flag }) => (
+                  <li
+                    key={code}
+                    className={`p-2 hover:bg-orange-200 ${
+                      locale === code ? "font-bold" : "font-normal"
+                    }`}
+                  >
+                    <Link
+                      href={pathname}
+                      locale={code}
+                      className="flex items-center space-x-2"
+                      onClick={() => setLanguageMenuOpen(false)}
+                    >
+                      <Image
+                        alt={name}
+                        src={`/flags/${code}.png`}
+                        width={30}
+                        height={30}
+                        className={locale === "ar" ? "ml-2" : ""}
+                      />
+                      <span>{name}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </div>
 
           {/* Social Media Icons */}
           <ul className="hidden md:flex items-center space-x-4">
@@ -74,27 +143,27 @@ const NavBar = () => {
           <ul className="flex flex-col items-center space-y-6 text-2xl">
             <li>
               <Link href="/" onClick={() => setMenuOpen(false)}>
-                Home
+                {t("homePage")}
               </Link>
             </li>
             <li>
-              <Link href="/content/guide" onClick={() => setMenuOpen(false)}>
-                Travel
+              <Link href="/guide" onClick={() => setMenuOpen(false)}>
+                {t("travelPage")}
               </Link>
             </li>
             <li>
-              <Link href="/content/blog" onClick={() => setMenuOpen(false)}>
-                Blog
+              <Link href="/blog" onClick={() => setMenuOpen(false)}>
+                {t("blogPage")}
               </Link>
             </li>
             <li>
-              <Link href="/content/about" onClick={() => setMenuOpen(false)}>
-                About
+              <Link href="/about" onClick={() => setMenuOpen(false)}>
+                {t("aboutPage")}
               </Link>
             </li>
             <li>
-              <Link href="/content/contact" onClick={() => setMenuOpen(false)}>
-                Contact Us
+              <Link href="/contact" onClick={() => setMenuOpen(false)}>
+                {t("contactPage")}
               </Link>
             </li>
           </ul>

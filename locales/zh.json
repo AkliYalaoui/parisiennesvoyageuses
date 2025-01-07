@@ -1,0 +1,63 @@
+{
+    "NavBar": {
+      "homePage": "首页",
+      "travelPage": "旅行",
+      "blogPage": "博客",
+      "aboutPage": "关于我们",
+      "contactPage": "联系我们"
+    },
+    "Hero": {
+      "headline": "你的下一场冒险从这里开始",
+      "subHeadline": "跟随我们，捕捉旅行的魔力，揭开世界上最迷人的目的地的秘密。",
+      "followUs": "在Instagram上关注我们",
+      "shopGuide": "购买我们的旅行指南"
+    },
+    "LatestReels": {
+      "title": "观看我们的最新短片"
+    },
+    "Gallery": {
+      "title": "我们最棒的照片"
+    },
+    "Guides": {
+      "title": "发现巴黎的魔力",
+      "subTitle": "这是你在光之城的终极指南。探索标志性景点，品尝当地美食，沉浸在巴黎文化中。",
+      "firsCardTitle": "品味巴黎",
+      "firstCardDesc": "尽享世界一流的羊角面包、面包店和咖啡。",
+      "secondCardTitle": "标志性景点",
+      "secondCardDesc": "探索埃菲尔铁塔、巴黎圣母院和迷人的巴黎街道。",
+      "thirdCardTitle": "规划你的一天",
+      "thirdCardDesc": "跟随我们的指南，度过一个充满冒险的完美巴黎日。",
+      "button": "立即获取巴黎指南",
+      "note": "*限时优惠：今天就计划你的旅行，并获取独家资讯！"
+    },
+    "Blog": {
+      "title": "从我们的旅程中学习",
+      "desc": "加入我们的全球冒险，探索我们的旅行小贴士、故事和不同国家的独特经历。",
+      "button": "阅读我们的博客"
+    },
+    "Follow": {
+      "title": "加入我们的Instagram",
+      "subTitle": "通过我们的镜头体验世界！跟随我们分享令人惊叹的旅行照片、幕后时刻和难忘的故事。",
+      "firsCardTitle": "旅行照片",
+      "firstCardDesc": "通过标志性地点和隐藏的宝石，启发你对旅行的热情。",
+      "secondCardTitle": "欢乐时光",
+      "secondCardDesc": "发现那些使我们的旅行与众不同的温馨故事和时刻。",
+      "thirdCardTitle": "实时更新",
+      "thirdCardDesc": "跟随我们的旅程，实时关注我们的冒险。",
+      "button": "在Instagram上关注我们"
+    },
+    "Footer": {
+      "title": "关于我们",
+      "subTitle": "我们是充满激情的双胞胎旅行者，分享故事、建议和经历，激发你下一次的冒险。",
+      "quick": "快速链接",
+      "travel": "旅行指南",
+      "blog": "博客",
+      "about": "关于我们",
+      "contact": "联系我们",
+      "contactTitle": "联系",
+      "follow": "关注我们",
+      "question": "有问题或想合作吗？联系我们！",
+      "rights": "版权所有。"
+    }
+  }
+  

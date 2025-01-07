@@ -1,8 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 const Blog = () => {
+  const t = useTranslations("Blog");
   return (
     <section className="bg-orange-950 py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
@@ -19,18 +21,16 @@ const Blog = () => {
 
           <div className="flex-1 text-center lg:text-left">
             <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-orange-100 mb-4">
-              Learn from Our Journey
+              {t('title')}
             </h2>
             <p className="text-lg text-gray-300 mb-6">
-              Join us on a captivating adventure across the globe. Discover our
-              travel tips, stories, and unique experiences from exploring
-              different countries.
+              {t('desc')}
             </p>
             <Link
-              href="/content/blog"
+              href="/blog"
               className="px-5 py-3 bg-orange-400 text-orange-950 font-bold text-lg rounded-lg shadow-lg hover:bg-orange-900 transition-all duration-300"
             >
-              Read Our Blog
+              {t('button')}
             </Link>
           </div>
         </div>
