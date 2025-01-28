@@ -1,63 +1,221 @@
 {
-    "NavBar": {
-      "homePage": "Accueil",
-      "travelPage": "Voyage",
-      "blogPage": "Blog",
-      "aboutPage": "À propos",
-      "contactPage": "Contactez-nous"
+  "NavBar": {
+    "homePage": "Accueil",
+    "travelPage": "Voyage",
+    "blogPage": "Blog",
+    "aboutPage": "À propos",
+    "contactPage": "Contactez-nous"
+  },
+  "Hero": {
+    "headline": "Votre prochaine aventure commence ici",
+    "subHeadline": "Suivez-nous alors que nous capturons la magie du voyage et découvrons les secrets des destinations les plus fascinantes au monde.",
+    "followUs": "Suivez-nous sur Instagram",
+    "shopGuide": "Achetez notre guide de voyage"
+  },
+  "LatestReels": {
+    "title": "Regardez nos derniers reels"
+  },
+  "Gallery": {
+    "title": "Nos meilleurs clichés"
+  },
+  "Guides": {
+    "title": "Découvrez la magie de Paris",
+    "subTitle": "Votre guide ultime de la Ville Lumière. Explorez les monuments emblématiques, savourez la cuisine locale et immergez-vous dans la culture parisienne.",
+    "firsCardTitle": "Savourez Paris",
+    "firstCardDesc": "Régalez-vous avec les meilleurs croissants, boulangeries et cafés de classe mondiale.",
+    "secondCardTitle": "Monuments emblématiques",
+    "secondCardDesc": "Découvrez la Tour Eiffel, Notre-Dame et les charmantes rues de Paris.",
+    "thirdCardTitle": "Planifiez votre journée",
+    "thirdCardDesc": "Suivez notre guide pour une journée parfaite à Paris remplie d'aventures.",
+    "button": "Obtenez votre guide de Paris maintenant",
+    "note": "*Offre limitée : Planifiez votre voyage aujourd'hui et obtenez des informations exclusives!"
+  },
+  "Blog": {
+    "title": "Apprenez de notre voyage",
+    "desc": "Rejoignez-nous dans une aventure captivante à travers le monde. Découvrez nos astuces de voyage, nos histoires et nos expériences uniques en explorant différents pays.",
+    "button": "Lisez notre blog"
+  },
+  "Follow": {
+    "title": "Rejoignez-nous sur Instagram",
+    "subTitle": "Découvrez le monde à travers notre objectif ! Suivez-nous alors que nous partageons de superbes photos de voyage, des moments en coulisses et des histoires inoubliables.",
+    "firsCardTitle": "Photos de voyage",
+    "firstCardDesc": "Inspirez-vous avec des vues imprenables des endroits emblématiques et des trésors cachés.",
+    "secondCardTitle": "Moments de joie",
+    "secondCardDesc": "Découvrez des histoires touchantes et des moments qui rendent nos voyages spéciaux.",
+    "thirdCardTitle": "Mises à jour en direct",
+    "thirdCardDesc": "Suivez notre voyage en temps réel et restez connecté à nos aventures.",
+    "button": "Suivez-nous sur Instagram"
+  },
+  "Footer": {
+    "title": "À propos de nous",
+    "subTitle": "Nous sommes des voyageurs jumeaux passionnés partageant des histoires, des astuces et des expériences pour inspirer votre prochaine aventure.",
+    "quick": "Liens rapides",
+    "travel": "Guide de voyage",
+    "blog": "Blog",
+    "about": "À propos de nous",
+    "contact": "Contactez-nous",
+    "contactTitle": "Contact",
+    "follow": "Suivez-nous",
+    "question": "Vous avez des questions ou souhaitez collaborer ? Contactez-nous !",
+    "rights": "Tous droits réservés."
+  },
+  "AboutPage": {
+    "title": "À Propos de Nous",
+    "subTitle": "Sœurs jumelles, aventurières dans l'âme. Nous sommes ici pour partager la magie de Paris et nos voyages à travers le monde.",
+    "meet": "Rencontrez les Sœurs Jumelles",
+    "p1": "Nous sommes deux jumelles parisiennes avec un amour inébranlable pour le voyage. Au fil des années, nous avons exploré des lieux comme Alger, Strasbourg, la Normandie, Londres, Milan, Rome, New York, Istanbul, Dubaï et Bruxelles. Mais peu importe où nous allons, Paris restera toujours notre chez-nous.",
+    "p2": "Avec une connaissance approfondie de chaque petit secret que cette belle ville a à offrir, nous avons fait de notre mission de partager ces secrets avec le monde. Des trésors cachés de Paris à nos aventures à l'étranger, notre Instagram et notre blog sont notre moyen de connecter avec des âmes partageant la même passion pour le voyage.",
+    "p3": "Rejoignez-nous pour explorer le monde et plonger au cœur de Paris, en vous proposant les meilleurs guides de voyage et des conseils d’initiés pour un voyage inoubliable.",
+    "cta1": "Suivez-nous sur Instagram",
+    "title2": "Nos Aventures de Voyage",
+    "adventures": {
+      "paris": {
+        "title": "Paris - Notre Cœur",
+        "description": "Paris est bien plus qu'une simple ville pour nous. C'est notre maison, notre inspiration et notre amour. Nous connaissons chaque recoin de cette magnifique ville et voulons la partager avec vous !"
+      },
+      "marseille": {
+        "title": "Marseille - Le Charme Méditerranéen",
+        "description": "Marseille est une ville pleine de vie, avec son littoral magnifique, ses ports historiques et sa culture vibrante. L'énergie méditerranéenne de cette ville en fait l'un de nos endroits préférés à visiter, où la mer et la vie urbaine se mélangent parfaitement."
+      },
+      "strasbourg": {
+        "title": "Strasbourg - Là Où les Cultures se Rencontrent",
+        "description": "Strasbourg, une belle ville à la frontière franco-allemande, est connue pour son mélange de cultures française et allemande. Les rues pittoresques de La Petite France et la majestueuse cathédrale de Strasbourg font de cette ville une destination inoubliable."
+      },
+      "normandy": {
+        "title": "Normandie - Histoire et Nature",
+        "description": "La Normandie est célèbre pour son riche passé historique, en particulier les plages du débarquement, ainsi que pour ses paysages naturels à couper le souffle. La campagne paisible, les charmants villages et la cuisine délicieuse en font une escapade idéale."
+      },
+      "london": {
+        "title": "Londres - Un Centre Culturel",
+        "description": "Londres ne manque jamais d'impressionner avec ses monuments emblématiques, sa scène artistique vibrante et son charme historique. De la Tour de Londres au West End animé, cette ville regorge toujours de vie et d'excitation."
+      },
+      "milan": {
+        "title": "Milan - Mode et Élégance",
+        "description": "Milan est la capitale de la mode en Italie, mais c'est aussi une ville d'art, d'histoire et de culture. La magnifique cathédrale Duomo, le shopping incroyable et la cuisine exquise font de Milan une destination à la fois élégante et riche en patrimoine."
+      },
+      "rome": {
+        "title": "Rome - La Ville Éternelle",
+        "description": "Rome est une ville comme nulle autre, imprégnée d'histoire et d'architecture ancienne. Le Colisée, le Forum Romain et le Vatican ne sont que quelques-uns des sites emblématiques qui rendent cette ville inoubliable."
+      },
+      "newyork": {
+        "title": "New York - La Ville Qui Ne Dort Jamais",
+        "description": "New York est une métropole animée qui offre une infinité de choses à voir et à faire. De Times Square à Central Park en passant par les quartiers vibrants, cette ville inspire toujours par son énergie et sa diversité."
+      },
+      "istanbul": {
+        "title": "Istanbul - Là Où l'Est Rencontre l'Ouest",
+        "description": "Istanbul est une ville qui combine le meilleur de l'Europe et de l'Asie, offrant un mélange unique de cultures, d'histoire et d'architecture. La basilique Sainte-Sophie et les vues sur le Bosphore ne sont que le début de cette ville magique."
+      },
+      "dubai": {
+        "title": "Dubaï - Luxe et Innovation",
+        "description": "Dubaï est une ville futuriste de luxe, avec des gratte-ciels imposants et un shopping incroyable. Connue pour son opulence, Dubaï offre également des expériences culturelles riches et des paysages désertiques à couper le souffle."
+      },
+      "brussels": {
+        "title": "Bruxelles - Un Mélange de Cultures",
+        "description": "Bruxelles, le cœur de l'Europe, est une ville connue pour son mélange unique de cultures française et flamande. Avec une architecture impressionnante, un chocolat délicieux et l'Atomium emblématique, Bruxelles a de quoi plaire à tous les voyageurs."
+      },
+      "abudhabi": {
+        "title": "Abu Dhabi - Oasis de Luxe et de Culture",
+        "description": "Abu Dhabi, la capitale des Émirats Arabes Unis, allie architecture moderne et riche patrimoine culturel. De la Grande Mosquée Sheikh Zayed au Louvre Abu Dhabi et aux aventures exaltantes dans le désert, cette ville offre une expérience captivante."
+      }
     },
-    "Hero": {
-      "headline": "Votre prochaine aventure commence ici",
-      "subHeadline": "Suivez-nous alors que nous capturons la magie du voyage et découvrons les secrets des destinations les plus fascinantes au monde.",
-      "followUs": "Suivez-nous sur Instagram",
-      "shopGuide": "Achetez notre guide de voyage"
+    "title3": "Pourquoi Nous Avons Commencé à Partager Notre Histoire",
+    "p4": "En tant que sœurs jumelles, nous avons toujours partagé une passion commune pour l'exploration du monde. Mais ce qui a réellement déclenché notre aventure, c'est notre amour pour Paris et le désir de partager tout ce que nous savons à son sujet. Paris, ce n'est pas seulement visiter des monuments emblématiques - c'est découvrir les trésors cachés, les endroits secrets que seuls les locaux connaissent, et les histoires uniques qui rendent cette ville si magique.",
+    "p5": "Nous avons créé ce blog et cette page Instagram pour connecter avec d'autres voyageurs, partager des conseils et documenter nos aventures personnelles. À travers nos guides et nos publications, nous voulons vous inspirer à aller au-delà des expériences touristiques habituelles et à vous immerger pleinement dans la culture, la beauté et l'histoire de Paris.",
+    "cta2": "Découvrez Nos Guides de Voyage"
+  },
+  "ContactPage": {
+    "title": "Contactez-nous",
+    "p1": "Vous avez une question ou avez besoin d'aide ? Nous sommes là pour vous aider ! Veuillez remplir le formulaire ci-dessous, et notre équipe vous répondra dès que possible.",
+    "notM": "Le message n'a pas été envoyé",
+    "m": "Message envoyé avec succès",
+    "wrong": "! Désolé, quelque chose a mal tourné.",
+    "reach": "Mais vous pouvez toujours nous contacter via Instagram.",
+    "getBack": "! Nous vous répondrons dès que possible.",
+    "reachable": "Nous sommes également joignables via Instagram.",
+    "name": "Nom",
+    "namePlaceholder": "Entrez votre nom complet",
+    "email": "E-mail",
+    "emailPlaceholder": "Entrez votre adresse e-mail",
+    "subject": "Sujet",
+    "subjectPlaceholder": "Entrez le sujet de votre message",
+    "message": "Votre message",
+    "messagePlaceholder": "Tapez votre message ici...",
+    "sending": "Envoi en cours...",
+    "send": "Envoyer le message",
+    "name_required": "Le nom est requis",
+    "name_minLength": "Le nom doit comporter au moins 2 caractères",
+    "email_required": "L'email est requis",
+    "email_invalidEmail": "Veuillez entrer une adresse email valide",
+    "subject_required": "Le sujet est requis",
+    "subject_minLength": "Le sujet doit comporter au moins 5 caractères",
+    "message_required": "Le message est requis",
+    "message_minLength": "Le message doit comporter au moins 10 caractères"
+  },
+  "GuidesPage": {
+    "introTitle": "Explorez nos guides de voyage à Paris",
+    "introDescription": "Découvrez Paris comme jamais auparavant avec nos guides de voyage conçus par des experts. Chaque guide est conçu pour répondre à un style de voyage unique, garantissant une expérience mémorable et sans stress.",
+    "introQuote": "\"Que vous soyez un visiteur pour la première fois, un explorateur chevronné ou quelqu'un à la recherche de luxe, nous avons quelque chose de spécial rien que pour vous !\"",
+    "guideCards": {
+      "essentialParis": {
+        "title": "Paris essentiel",
+        "description": "Parfait pour les visiteurs pour la première fois. Comprend les attractions incontournables, des conseils sur les transports et des itinéraires types.",
+        "price": "Prix : 19,99 €",
+        "learnMore": "En savoir plus",
+        "buyNow": "Acheter maintenant"
+      },
+      "hiddenParis": {
+        "title": "Paris caché",
+        "description": "Pour ceux qui recherchent des expériences uniques. Explorez les trésors cachés, les cafés locaux et les quartiers hors des sentiers battus.",
+        "price": "Prix : 24,99 €",
+        "learnMore": "En savoir plus",
+        "buyNow": "Acheter maintenant"
+      },
+      "luxuryParis": {
+        "title": "Paris de luxe",
+        "description": "Offrez-vous le meilleur que Paris ait à offrir. Comprend la gastronomie de luxe, le shopping et des expériences exclusives.",
+        "price": "Prix : 39,99 €",
+        "learnMore": "En savoir plus",
+        "buyNow": "Acheter maintenant"
+      }
     },
-    "LatestReels": {
-      "title": "Regardez nos derniers reels"
+    "whyChoose": {
+      "title": "Pourquoi choisir nos guides ?",
+      "description": "Chaque guide est rédigé par des voyageurs expérimentés qui connaissent Paris sur le bout des doigts. Nous proposons :",
+      "benefits": {
+        "first": "Des astuces d'initiés pour gagner du temps et de l'argent.",
+        "second": "Des recommandations exclusives que vous ne trouverez nulle part ailleurs.",
+        "third": "Des itinéraires engageants et faciles à suivre."
+      },
+      "closingText": "Ne vous contentez pas de visiter Paris, vivez-le comme jamais auparavant."
     },
-    "Gallery": {
-      "title": "Nos meilleurs clichés"
-    },
-    "Guides": {
-      "title": "Découvrez la magie de Paris",
-      "subTitle": "Votre guide ultime de la Ville Lumière. Explorez les monuments emblématiques, savourez la cuisine locale et immergez-vous dans la culture parisienne.",
-      "firsCardTitle": "Savourez Paris",
-      "firstCardDesc": "Régalez-vous avec les meilleurs croissants, boulangeries et cafés de classe mondiale.",
-      "secondCardTitle": "Monuments emblématiques",
-      "secondCardDesc": "Découvrez la Tour Eiffel, Notre-Dame et les charmantes rues de Paris.",
-      "thirdCardTitle": "Planifiez votre journée",
-      "thirdCardDesc": "Suivez notre guide pour une journée parfaite à Paris remplie d'aventures.",
-      "button": "Obtenez votre guide de Paris maintenant",
-      "note": "*Offre limitée : Planifiez votre voyage aujourd'hui et obtenez des informations exclusives!"
-    },
-    "Blog": {
-      "title": "Apprenez de notre voyage",
-      "desc": "Rejoignez-nous dans une aventure captivante à travers le monde. Découvrez nos astuces de voyage, nos histoires et nos expériences uniques en explorant différents pays.",
-      "button": "Lisez notre blog"
-    },
-    "Follow": {
-      "title": "Rejoignez-nous sur Instagram",
-      "subTitle": "Découvrez le monde à travers notre objectif ! Suivez-nous alors que nous partageons de superbes photos de voyage, des moments en coulisses et des histoires inoubliables.",
-      "firsCardTitle": "Photos de voyage",
-      "firstCardDesc": "Inspirez-vous avec des vues imprenables des endroits emblématiques et des trésors cachés.",
-      "secondCardTitle": "Moments de joie",
-      "secondCardDesc": "Découvrez des histoires touchantes et des moments qui rendent nos voyages spéciaux.",
-      "thirdCardTitle": "Mises à jour en direct",
-      "thirdCardDesc": "Suivez notre voyage en temps réel et restez connecté à nos aventures.",
-      "button": "Suivez-nous sur Instagram"
-    },
-    "Footer": {
-      "title": "À propos de nous",
-      "subTitle": "Nous sommes des voyageurs jumeaux passionnés partageant des histoires, des astuces et des expériences pour inspirer votre prochaine aventure.",
-      "quick": "Liens rapides",
-      "travel": "Guide de voyage",
-      "blog": "Blog",
-      "about": "À propos de nous",
-      "contact": "Contactez-nous",
-      "contactTitle": "Contact",
-      "follow": "Suivez-nous",
-      "question": "Vous avez des questions ou souhaitez collaborer ? Contactez-nous !",
-      "rights": "Tous droits réservés."
+    "guideDetails": {
+      "essential": {
+        "title": "Guide essentiel de Paris",
+        "description": "Que ce soit votre première fois à Paris ou que vous revisitez les classiques, ce guide couvre la Tour Eiffel, Notre-Dame, Montmartre, et bien plus encore. Nous incluons également des conseils sur les transports en commun et les meilleurs moments pour visiter les monuments emblématiques.",
+        "list": {
+          "first": "Itinéraires étape par étape pour 1 à 3 jours",
+          "second": "Astuces secrètes pour éviter les foules",
+          "third": "Recommandations abordables pour la nourriture et les transports"
+        }
+      },
+      "hidden": {
+        "title": "Guide du Paris caché",
+        "description": "Découvrez le Paris que les habitants adorent. Ce guide vous emmène dans des jardins secrets, des scènes de street art vibrantes, des cafés peu connus et des quartiers authentiques.",
+        "list": {
+          "first": "Des spots photo dignes d'Instagram",
+          "second": "Des visites à pied uniques des trésors cachés",
+          "third": "Où vivre la culture parisienne sans touristes"
+        }
+      },
+      "luxury": {
+        "title": "Guide du Paris de luxe",
+        "description": "Vivez Paris avec style. Du shopping de classe mondiale sur les Champs-Élysées aux restaurants étoilés Michelin, ce guide vous garantit un voyage luxueux à travers la Ville Lumière.",
+        "list": {
+          "first": "Des recommandations exclusives d'hôtels et de spas",
+          "second": "Les meilleurs restaurants gastronomiques",
+          "third": "Des visites privées de musées et de monuments"
+        }
+      }
     }
   }
-  
+}

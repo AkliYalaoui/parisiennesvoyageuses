@@ -1,7 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { PaymentElement, useStripe, useElements } from "@stripe/react-stripe-js";
+import {
+  PaymentElement,
+  useStripe,
+  useElements,
+} from "@stripe/react-stripe-js";
 
 export default function CheckoutForm() {
   const stripe = useStripe();
@@ -48,7 +52,6 @@ export default function CheckoutForm() {
 
   return (
     <form id="payment-form" onSubmit={handleSubmit} className="space-y-4">
-
       <PaymentElement id="payment-element" options={paymentElementOptions} />
 
       <button
@@ -60,7 +63,11 @@ export default function CheckoutForm() {
         {isLoading ? <span>Loading...</span> : <span>Pay Now</span>}
       </button>
 
-      {message && <div id="payment-message" className="text-red-500 mt-2">{message}</div>}
+      {message && (
+        <div id="payment-message" className="text-red-500 mt-2">
+          {message}
+        </div>
+      )}
     </form>
   );
 }

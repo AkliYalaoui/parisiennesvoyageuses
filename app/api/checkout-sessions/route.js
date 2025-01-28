@@ -20,14 +20,10 @@ export async function POST(req) {
   try {
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
+      payment_method_types: ['card'],
       amount: selectedGuide.price,
-      currency: "eur",
-      automatic_payment_methods: {
-        enabled: true,
-      },
+      currency: "eur"
     });
-
-    console.log(paymentIntent);
     
     return NextResponse.json({ clientSecret: paymentIntent.client_secret});
   } catch (error) {

@@ -12,15 +12,15 @@
         "followUs": "Follow Us on Instagram",
         "shopGuide": "Shop Our Travel Guide"
     },
-    "LatestReels":{
-        "title":"Watch our latest reels"
+    "LatestReels": {
+        "title": "Watch our latest reels"
     },
-    "Gallery":{
-        "title":"Our best shots"
+    "Gallery": {
+        "title": "Our best shots"
     },
-    "Guides":{
-        "title":"Discover the Magic of Paris",
-        "subTitle" : "Your ultimate guide to the City of Light. Explore iconic landmarks, savor local cuisine, and immerse yourself in Parisian culture.",
+    "Guides": {
+        "title": "Discover the Magic of Paris",
+        "subTitle": "Your ultimate guide to the City of Light. Explore iconic landmarks, savor local cuisine, and immerse yourself in Parisian culture.",
         "firsCardTitle": "Savor Paris",
         "firstCardDesc": "Indulge in the best croissants, bakeries, and world-class coffees.",
         "secondCardTitle": "Iconic Landmarks",
@@ -28,16 +28,16 @@
         "thirdCardTitle": "Plan Your Day",
         "thirdCardDesc": "Follow our guide for a perfect day in Paris filled with adventure.",
         "button": "Get Your Paris Guide Now",
-        "note" : "*Limited-time offer: Plan your trip today and get exclusive insights!"
+        "note": "*Limited-time offer: Plan your trip today and get exclusive insights!"
     },
-    "Blog":{
+    "Blog": {
         "title": "Learn from Our Journey",
         "desc": "Join us on a captivating adventure across the globe. Discover our travel tips, stories, and unique experiences from exploring different countries.",
-        "button" : "Read Our Blog"
+        "button": "Read Our Blog"
     },
-    "Follow":{
+    "Follow": {
         "title": "Join Us on Instagram",
-        "subTitle" : "Experience the world through our lens! Follow us as we share stunning travel photos, behind-the-scenes moments, and unforgettable stories.",
+        "subTitle": "Experience the world through our lens! Follow us as we share stunning travel photos, behind-the-scenes moments, and unforgettable stories.",
         "firsCardTitle": "Travel Photos",
         "firstCardDesc": "Get inspired by breathtaking shots of iconic places and hidden gems.",
         "secondCardTitle": "Moments of Joy",
@@ -46,17 +46,176 @@
         "thirdCardDesc": "Follow our journey in real time and stay connected to our adventures.",
         "button": "Follow Us on Instagram"
     },
-    "Footer":{
+    "Footer": {
         "title": "About Us",
         "subTitle": "We are passionate twin travelers sharing stories, tips, and experiences to inspire your next adventure.",
         "quick": "Quick Links",
         "travel": "Travel Guide",
-        "blog" :"Blog",
+        "blog": "Blog",
         "about": "About Us",
         "contact": "Contact Us",
         "contactTitle": "Contact",
         "follow": "Follow Us",
         "question": "Have questions or want to collaborate? Reach out to us!",
         "rights": "All Rights Reserved."
+    },
+    "AboutPage": {
+        "title": "About Us",
+        "subTitle": "Twin sisters, adventurers at heart. We are here to share the magic of Paris and our journeys around the world.",
+        "meet": "Meet the Twin Sisters",
+        "p1": "We are two Parisian twins with an unshakable love for travel. Over the years, we've ventured to places like Algiers, Strasbourg, Normandy, London, Milan, Rome, New York, Istanbul, Dubai, and Brussels. But no matter where we go, Paris will always be our home.",
+        "p2": "With a deep knowledge of every little secret this beautiful city has to offer, we've made it our mission to share these secrets with the world. From hidden gems in Paris to our adventures abroad, our Instagram and blog are our way of connecting with like-minded wanderlust souls.",
+        "p3": "Join us as we explore the world and dive deep into the heart of Paris, offering you the ultimate travel guides and insider tips for an unforgettable journey.",
+        "cta1": "Follow Us on Instagram",
+        "title2": "Our Travel Adventures",
+        "adventures": {
+            "paris": {
+                "title": "Paris - Our Heart",
+                "description": "Paris is more than just a city for us. It's our home, our inspiration, and our love. We know every corner of this beautiful city and want to share it with you!"
+            },
+            "marseille": {
+                "title": "Marseille - Mediterranean Charm",
+                "description": "Marseille is a city full of life, with its stunning coastline, historic ports, and vibrant culture. The Mediterranean energy of this city makes it one of our favorite places to visit, where the sea and city life blend perfectly."
+            },
+            "strasbourg": {
+                "title": "Strasbourg - Where Cultures Meet",
+                "description": "Strasbourg, a beautiful city on the French-German border, is known for its mix of French and German culture. The picturesque streets of La Petite France and the grand Strasbourg Cathedral make this city an unforgettable destination."
+            },
+            "normandy": {
+                "title": "Normandy - History and Nature",
+                "description": "Normandy is known for its rich history, particularly the D-Day landing beaches, as well as its breathtaking natural landscapes. The peaceful countryside, charming villages, and delicious cuisine make it a perfect getaway."
+            },
+            "london": {
+                "title": "London - A Cultural Hub",
+                "description": "London never fails to impress with its iconic landmarks, vibrant arts scene, and historic charm. From the Tower of London to the bustling West End, this city is always brimming with life and excitement."
+            },
+            "milan": {
+                "title": "Milan - Fashion and Elegance",
+                "description": "Milan is Italy's fashion capital, and it's also a city of art, history, and culture. The stunning Duomo Cathedral, incredible shopping, and exquisite food make Milan a destination that's both stylish and rich in heritage."
+            },
+            "rome": {
+                "title": "Rome - The Eternal City",
+                "description": "Rome is a city like no other, steeped in history and ancient architecture. The Colosseum, the Roman Forum, and the Vatican are just a few of the iconic sites that make this city unforgettable."
+            },
+            "newyork": {
+                "title": "New York - The City That Never Sleeps",
+                "description": "New York is a bustling metropolis that offers endless things to see and do. From Times Square to Central Park and the vibrant neighborhoods, this city never fails to inspire with its energy and diversity."
+            },
+            "istanbul": {
+                "title": "Istanbul - Where East Meets West",
+                "description": "Istanbul is a city that blends the best of Europe and Asia, offering a unique mix of cultures, history, and architecture. The Hagia Sophia and Bosphorus views are just the beginning of this magical city."
+            },
+            "dubai": {
+                "title": "Dubai - Luxury and Innovation",
+                "description": "Dubai is a futuristic city of luxury, towering skyscrapers, and incredible shopping. Known for its opulence, Dubai also offers rich cultural experiences and breathtaking desert landscapes."
+            },
+            "brussels": {
+                "title": "Brussels - A Blend of Cultures",
+                "description": "Brussels, the heart of Europe, is a city known for its unique blend of French and Flemish cultures. With stunning architecture, delicious chocolate, and the iconic Atomium, Brussels offers something for every traveler."
+            },
+            "abudhabi": {
+                "title": "Abu Dhabi - Oasis of Luxury and Culture",
+                "description": "Abu Dhabi, the capital of the UAE, blends modern architecture with rich cultural heritage. From the Sheikh Zayed Grand Mosque to the Louvre Abu Dhabi and exhilarating desert adventures, this city offers a captivating experience."
+            }
+        },
+        "title3": "Why We Started Sharing Our Story",
+        "p4": "As twin sisters, we've always had a shared passion for exploring the world. But what really ignited our journey was our love for Paris and the desire to share everything we know about it. Paris isn't just about visiting iconic monuments - it's about discovering the hidden gems, the secret spots only locals know, and the unique stories that make this city so magical.",
+        "p5": "We created this blog and Instagram page as a way to connect with fellow travelers, share tips, and document our personal adventures. Through our guides and posts, we want to inspire you to go beyond the usual touristy experiences and truly immerse yourself in the culture, beauty, and history of Paris.",
+        "cta2": "Discover Our Travel Guides"
+    },
+    "ContactPage": {
+        "title": "Contact Us",
+        "p1": "Have a question or need assistance? We're here to help! Please fill out the form below, and our team will get back to you as soon as possible.",
+        "notM": "Message was not sent",
+        "m": "Message sent successfully",
+        "wrong": "! We are sorry, something went wrong.",
+        "reach": "But we're still reachable via Instagram.",
+        "getBack": "! We will get back to you as soon as possible.",
+        "reachable": "We're also reachable via Instagram.",
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Your Message",
+        "sending": "Sending...",
+        "send": "Send Message",
+        "namePlaceholder": "Enter your full name",
+        "emailPlaceholder": "Enter your email address",
+        "subjectPlaceholder": "Enter the subject of your message",
+        "messagePlaceholder": "Type your message here...",
+        "name_required": "Name is required",
+        "name_minLength": "Name must be at least 2 characters long",
+        "email_required": "Email is required",
+        "email_invalidEmail": "Please enter a valid email address",
+        "subject_required": "Subject is required",
+        "subject_minLength": "Subject must be at least 5 characters long",
+        "message_required": "Message is required",
+        "message_minLength": "Message must be at least 10 characters long"
+    },
+    "GuidesPage": {
+        "introTitle": "Explore Our Paris Travel Guides",
+        "introDescription": "Discover Paris like never before with our expertly crafted travel guides. Each guide is designed to cater to a unique travel style, ensuring a memorable and stress-free experience.",
+        "introQuote": "\"Whether you're a first-time visitor, a seasoned explorer, or someone seeking luxury, we have something special just for you!\"",
+        "guideCards": {
+            "essentialParis": {
+                "title": "Essential Paris",
+                "description": "Perfect for first-time visitors. Includes must-see attractions, tips on transportation, and sample itineraries.",
+                "price": "Price: €19.99",
+                "learnMore": "Learn More",
+                "buyNow": "Buy Now"
+            },
+            "hiddenParis": {
+                "title": "Hidden Paris",
+                "description": "For those seeking unique experiences. Explore hidden gems, local cafes, and off-the-beaten-path neighborhoods.",
+                "price": "Price: €24.99",
+                "learnMore": "Learn More",
+                "buyNow": "Buy Now"
+            },
+            "luxuryParis": {
+                "title": "Luxury Paris",
+                "description": "Indulge in the finest Paris has to offer. Includes luxury dining, shopping, and exclusive experiences.",
+                "price": "Price: €39.99",
+                "learnMore": "Learn More",
+                "buyNow": "Buy Now"
+            }
+        },
+        "whyChoose": {
+            "title": "Why Choose Our Guides?",
+            "description": "Each guide is written by seasoned travelers who know Paris inside-out. We provide:",
+            "benefits": {
+                "first": "Insider tips to save time and money.",
+                "second": "Exclusive recommendations you won't find elsewhere.",
+                "third": "Engaging and easy-to-follow itineraries."
+            },
+            "closingText": "Don't just visit Paris—experience it like never before."
+        },
+        "guideDetails": {
+            "essential": {
+                "title": "Essential Paris Guide",
+                "description": "Whether it's your first time in Paris or you're revisiting the classics, this guide covers the Eiffel Tower, Notre Dame, Montmartre, and more. We also include tips on public transportation and the best times to visit iconic landmarks.",
+                "list": {
+                    "first": "Step-by-step itineraries for 1-3 days",
+                    "second": "Hidden tips to avoid crowds",
+                    "third": "Affordable recommendations for food and transport"
+                }
+            },
+            "hidden": {
+                "title": "Hidden Paris Guide",
+                "description": "Discover the Paris that locals love. This guide will take you to secret gardens, vibrant street art scenes, lesser-known cafes, and authentic neighborhoods.",
+                "list": {
+                    "first": "Instagram-worthy photo spots",
+                    "second": "Unique walking tours of hidden gems",
+                    "third": "Where to experience Parisian culture without tourists"
+                }
+            },
+            "luxury": {
+                "title": "Luxury Paris Guide",
+                "description": "Experience Paris in style. From world-class shopping on Avenue des Champs-Élysées to dining at Michelin-starred restaurants, this guide ensures a luxurious journey through the City of Light.",
+                "list": {
+                    "first": "Exclusive hotel and spa recommendations",
+                    "second": "Top fine-dining restaurants",
+                    "third": "Private tours of museums and landmarks"
+                }
+            }
+        }
     }
 }

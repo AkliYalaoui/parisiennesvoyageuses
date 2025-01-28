@@ -1,30 +1,31 @@
 "use client";
 
 import sendEMail from "@/app/lib/sendEMail";
-import { useActionState } from 'react';
+import { useActionState } from "react";
 import { FiMail, FiUser, FiMessageCircle } from "react-icons/fi";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { useTranslations } from "next-intl";
 
 const page = () => {
   const [messages, formAction, isPending] = useActionState(sendEMail, null);
-
+  const t = useTranslations("ContactPage");
   return (
     <section className="px-4">
       <h1 className="text-center text-4xl sm:text-5xl lg:text-6xl font-extrabold text-orange-900 mb-6">
-        Contact Us
+        {t("title")}
       </h1>
 
       <p className="text-center text-gray-700 mb-8 max-w-3xl mx-auto">
-        Have a question or need assistance? We're here to help! Please fill out the form below, 
-        and our team will get back to you as soon as possible.
+        {t("p1")}
       </p>
 
       {messages?.error && (
         <div className="max-w-4xl mx-auto bg-red-200 border border-red-800 text-red-950 p-4 rounded-lg mb-6">
           <p className="flex items-center">
             <FiMessageCircle className="mr-2 text-red-800" />
-            <strong>Message was not sent</strong>! We are sorry, something went wrong. 
-            <em className="ml-1">But we're still reachable via Instagram.</em>
+            <strong>{t("notM")}</strong>
+            {t("wrong")}
+            <em className="ml-1">{t("reach")}</em>
           </p>
         </div>
       )}
@@ -33,8 +34,9 @@ const page = () => {
         <div className="max-w-4xl mx-auto bg-green-200 border border-green-800 text-green-950 p-4 rounded-lg mb-6">
           <p className="flex items-center">
             <FiMail className="mr-2 text-green-800" />
-            <strong>Message sent successfully</strong>! We will get back to you as soon as possible. 
-            <em className="ml-1">We're also reachable via Instagram.</em>
+            <strong>{t("m")}</strong>
+            {t("getBack")}
+            <em className="ml-1">{t("reachable")}</em>
           </p>
         </div>
       )}
@@ -48,17 +50,20 @@ const page = () => {
             htmlFor="name"
             className="block text-gray-800 font-semibold mb-2"
           >
-            <FiUser className="inline mr-1 text-orange-600" /> Name <strong className="text-red-500">*</strong>
+            <FiUser className="inline mr-1 text-orange-600" /> {t("name")}{" "}
+            <strong className="text-red-500">*</strong>
           </label>
           <input
             type="text"
             id="name"
             name="name"
             className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-            placeholder="Enter your full name"
+            placeholder={t("namePlaceholder")}
             required
           />
-          {messages?.name && <p className="mt-2 text-sm text-red-500">{messages?.name}</p>}
+          {messages?.name && (
+            <p className="mt-2 text-sm text-red-500">{t(messages?.name)}</p>
+          )}
         </div>
 
         <div className="mb-4">
@@ -66,17 +71,20 @@ const page = () => {
             htmlFor="email"
             className="block text-gray-800 font-semibold mb-2"
           >
-            <FiMail className="inline mr-1 text-orange-600" /> Email <strong className="text-red-500">*</strong>
+            <FiMail className="inline mr-1 text-orange-600" /> {t("email")}{" "}
+            <strong className="text-red-500">*</strong>
           </label>
           <input
             type="email"
             id="email"
             name="email"
             className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-            placeholder="Enter your email address"
+            placeholder={t("emailPlaceholder")}
             required
           />
-          {messages?.email && <p className="mt-2 text-sm text-red-500">{messages?.email}</p>}
+          {messages?.email && (
+            <p className="mt-2 text-sm text-red-500">{t(messages?.email)}</p>
+          )}
         </div>
 
         <div className="mb-4">
@@ -84,17 +92,20 @@ const page = () => {
             htmlFor="subject"
             className="block text-gray-800 font-semibold mb-2"
           >
-            <FiMessageCircle className="inline mr-1 text-orange-600" /> Subject <strong className="text-red-500">*</strong>
+            <FiMessageCircle className="inline mr-1 text-orange-600" />{" "}
+            {t("subject")} <strong className="text-red-500">*</strong>
           </label>
           <input
             type="text"
             id="subject"
             name="subject"
             className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-            placeholder="Enter the subject of your message"
+            placeholder={t("subjectPlaceholder")}
             required
           />
-          {messages?.subject && <p className="mt-2 text-sm text-red-500">{messages?.subject}</p>}
+          {messages?.subject && (
+            <p className="mt-2 text-sm text-red-500">{t(messages?.subject)}</p>
+          )}
         </div>
 
         <div className="mb-6">
@@ -102,17 +113,20 @@ const page = () => {
             htmlFor="message"
             className="block text-gray-800 font-semibold mb-2"
           >
-            <FiMessageCircle className="inline mr-1 text-orange-600" /> Your Message <strong className="text-red-500">*</strong>
+            <FiMessageCircle className="inline mr-1 text-orange-600" />{" "}
+            {t("message")} <strong className="text-red-500">*</strong>
           </label>
           <textarea
             id="message"
             name="message"
             rows="4"
             className="w-full border border-gray-300 px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500"
-            placeholder="Type your message here..."
+            placeholder={t("messagePlaceholder")}
             required
           ></textarea>
-          {messages?.message && <p className="mt-2 text-sm text-red-500">{messages?.message}</p>}
+          {messages?.message && (
+            <p className="mt-2 text-sm text-red-500">{t(messages?.message)}</p>
+          )}
         </div>
 
         <button
@@ -122,10 +136,11 @@ const page = () => {
         >
           {isPending ? (
             <>
-              <AiOutlineLoading3Quarters className="animate-spin mr-2" /> Sending...
+              <AiOutlineLoading3Quarters className="animate-spin mr-2" />{" "}
+              {t("sending")}
             </>
           ) : (
-            "Send Message"
+            t("send")
           )}
         </button>
       </form>
