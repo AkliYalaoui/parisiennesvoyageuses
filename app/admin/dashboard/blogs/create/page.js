@@ -2,9 +2,12 @@
 
 import { useState } from "react";
 import { createClient } from "@/app/config/supabaseBrowserClient";
-import { FaImage, FaSave, FaTimes } from "react-icons/fa";
+import { FaSave, FaTimes } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-import Editor from "@/app/components/Editor";
+import dynamic from "next/dynamic";
+
+// Dynamically import the Editor component with SSR disabled
+const Editor = dynamic(() => import("@/app/components/Editor"), { ssr: false });
 
 const CreateBlog = () => {
   const supabase = createClient();
@@ -22,7 +25,7 @@ const CreateBlog = () => {
 
     setLoading(true);
     const fileName = `${Date.now()}_${file.name}`;
-    const { data, error } = await supabase.storage
+    const { _, error } = await supabase.storage
       .from("posts_cover")
       .upload(fileName, file);
 
