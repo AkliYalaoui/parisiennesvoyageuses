@@ -20,7 +20,7 @@ const LatestReels = async () => {
   const t = await getTranslations('LatestReels');
   return (
     <section className="container mx-auto p-4 py-16">
-      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-orange-950 text-center">
+      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-950 text-center">
         {t('title')}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-8">

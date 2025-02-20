@@ -78,14 +78,14 @@ const AboutPage = () => {
       <div className="container mx-auto px-6 md:px-12">
         {/* Introduction */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-orange-950">{t("title")}</h1>
+          <h1 className="text-4xl font-bold text-slate-950">{t("title")}</h1>
           <p className="text-lg text-gray-600 mt-4">{t("subTitle")}</p>
         </div>
 
         {/* Our Story */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex-1">
-            <h2 className="text-3xl font-semibold text-orange-950 mb-4">
+            <h2 className="text-3xl font-semibold text-slate-950 mb-4">
               {t("meet")}
             </h2>
             <p className="text-lg text-gray-700 mb-4">{t("p1")}</p>
@@ -95,7 +95,7 @@ const AboutPage = () => {
               href="https://www.instagram.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center p-2 bg-orange-900 text-white font-bold text-lg rounded-lg shadow-lg hover:bg-orange-950 transition-all duration-300"
+              className="inline-flex items-center p-2 bg-slate-900 text-white font-bold text-lg rounded-lg shadow-lg hover:bg-slate-950 transition-all duration-300"
             >
               <FaInstagramSquare className="mr-3 text-2xl" />
               {t("cta2")}
@@ -116,7 +116,7 @@ const AboutPage = () => {
 
         {/* Our Travel Adventures */}
         <div className="mt-16">
-          <h2 className="text-3xl font-semibold text-orange-950 text-center mb-8">
+          <h2 className="text-3xl font-semibold text-slate-950 text-center mb-8">
             {t("title2")}
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -133,7 +133,7 @@ const AboutPage = () => {
                   className="object-cover w-full h-64"
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-orange-950 mb-2">
+                  <h3 className="text-xl font-semibold text-slate-950 mb-2">
                     {adventure.title}
                   </h3>
                   <p className="text-gray-700">{adventure.description}</p>
@@ -145,7 +145,7 @@ const AboutPage = () => {
 
         {/* Why We Started */}
         <div className="mt-16">
-          <h2 className="text-3xl font-semibold text-orange-950 text-center mb-8">
+          <h2 className="text-3xl font-semibold text-slate-950 text-center mb-8">
             {t("title3")}
           </h2>
           <p className="text-lg text-gray-700 text-center max-w-4xl mx-auto">
@@ -157,10 +157,10 @@ const AboutPage = () => {
         </div>
 
         {/* Call to Action */}
-        <div className="mt-16 text-center">
+        <div className="mt-10 text-center">
           <Link
             href="/guide"
-            className="px-6 py-3 bg-orange-950 text-white font-semibold rounded-lg hover:bg-orange-900 transition"
+            className="p-2 bg-slate-950 text-white font-semibold rounded-lg hover:bg-slate-900 transition"
           >
             {t("cta2")}
           </Link>

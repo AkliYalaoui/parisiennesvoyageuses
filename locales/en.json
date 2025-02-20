@@ -16,10 +16,10 @@
         "title": "Watch our latest reels"
     },
     "Gallery": {
-        "title": "Our best shots"
+        "title": "Our Greatest Hits"
     },
     "Guides": {
-        "title": "Discover the Magic of Paris",
+        "title": "Explore Paris Like Never Before!",
         "subTitle": "Your ultimate guide to the City of Light. Explore iconic landmarks, savor local cuisine, and immerse yourself in Parisian culture.",
         "firsCardTitle": "Savor Paris",
         "firstCardDesc": "Indulge in the best croissants, bakeries, and world-class coffees.",
@@ -36,7 +36,7 @@
         "button": "Read Our Blog"
     },
     "Follow": {
-        "title": "Join Us on Instagram",
+        "title": "Follow Our Adventures on Instagram!",
         "subTitle": "Experience the world through our lens! Follow us as we share stunning travel photos, behind-the-scenes moments, and unforgettable stories.",
         "firsCardTitle": "Travel Photos",
         "firstCardDesc": "Get inspired by breathtaking shots of iconic places and hidden gems.",
@@ -44,7 +44,8 @@
         "secondCardDesc": "Discover heartwarming stories and moments that make our trips special.",
         "thirdCardTitle": "Live Updates",
         "thirdCardDesc": "Follow our journey in real time and stay connected to our adventures.",
-        "button": "Follow Us on Instagram"
+        "button": "Follow Us on Instagram",
+        "note": "Don't miss out! Follow us for exclusive travel content."
     },
     "Footer": {
         "title": "About Us",
@@ -119,8 +120,8 @@
             }
         },
         "title3": "Why We Started Sharing Our Story",
-        "p4": "As twin sisters, we've always had a shared passion for exploring the world. But what really ignited our journey was our love for Paris and the desire to share everything we know about it. Paris isn't just about visiting iconic monuments - it's about discovering the hidden gems, the secret spots only locals know, and the unique stories that make this city so magical.",
-        "p5": "We created this blog and Instagram page as a way to connect with fellow travelers, share tips, and document our personal adventures. Through our guides and posts, we want to inspire you to go beyond the usual touristy experiences and truly immerse yourself in the culture, beauty, and history of Paris.",
+        "p4": "It's simple. We believe that adventure is not just about the destinations but the transformation that happens within. Paris is not just a city; it is an experience waiting to be embraced. Just as we have explored its hidden alleys and timeless cafés, we want to invite you to experience it in the most authentic way—through our eyes, our passion, and our stories. Every step we take in the city of lights is a step towards understanding the power of connection, culture, and curiosity. And we want to share that with you—not just as guides but as fellow travelers who understand the transformative impact of seeing the world through fresh eyes.",
+        "p5": "As Robert Greene teaches in his 48 Laws of Power, 'Master the art of timing.' Paris, like life, is about finding the perfect moment, the perfect place, the perfect adventure. And we are here to help you find that magic in every corner of this city and beyond. We’ve lived the laws of exploration, discovery, and self-evolution in every journey. Join us in experiencing the world not just as it is, but as it could be—full of wonder, possibility, and endless stories.",
         "cta2": "Discover Our Travel Guides"
     },
     "ContactPage": {

@@ -28,7 +28,7 @@ const NavBar = ({ locale }) => {
   const pathname = usePathname();
 
   return (
-    <div className="fixed top-0 left-0 w-full z-10 bg-orange-950">
+    <div className="fixed top-0 left-0 w-full z-10 bg-slate-900">
       <div className="container mx-auto px-4">
         <nav className="flex items-center justify-between p-4 text-white">
           {/* Logo */}

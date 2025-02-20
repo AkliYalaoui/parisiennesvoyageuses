@@ -6,7 +6,7 @@ import { Link } from "@/i18n/routing";
 const Blog = () => {
   const t = useTranslations("Blog");
   return (
-    <section className="bg-orange-950 py-12">
+    <section className="bg-slate-950 py-12">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-8">
           <div className="flex-1">
@@ -28,7 +28,7 @@ const Blog = () => {
             </p>
             <Link
               href="/blog"
-              className="px-5 py-3 bg-orange-400 text-orange-950 font-bold text-lg rounded-lg shadow-lg hover:bg-orange-900 transition-all duration-300"
+              className="px-5 py-3 bg-slate-400 text-slate-950 font-bold text-lg rounded-lg shadow-lg hover:bg-slate-900 transition-all duration-300"
             >
               {t('button')}
             </Link>

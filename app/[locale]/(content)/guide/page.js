@@ -14,7 +14,7 @@ const TravelGuides = () => {
       {/* Introduction */}
       <div className="flex flex-wrap items-center justify-center flex-row gap-8 mb-12 text-center max-w-6xl mx-auto">
         <div className="">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-orange-950">
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-950">
             {t("introTitle")}
           </h1>
           <p className="text-lg text-gray-600 mt-4">{t("introDescription")}</p>
@@ -27,7 +27,7 @@ const TravelGuides = () => {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Essential Paris Guide */}
         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-          <h2 className="text-2xl font-semibold text-orange-950 mb-4">
+          <h2 className="text-2xl font-semibold text-slate-950 mb-4">
             {t("guideCards.essentialParis.title")}
           </h2>
           <p className="text-gray-700 mb-4">
@@ -39,13 +39,13 @@ const TravelGuides = () => {
           <div className="flex justify-between items-center">
             <a
               href="#essential"
-              className="block text-center bg-orange-950 text-white py-2 px-4 rounded-lg hover:bg-orange-800 transition"
+              className="block text-center bg-slate-950 text-white py-2 px-4 rounded-lg hover:bg-slate-800 transition"
             >
               {t("guideCards.essentialParis.learnMore")}
             </a>
             <Link
               href="/guide/essential-paris-guide"
-              className="bg-amber-200 text-amber-950 py-2 px-4 rounded-lg hover:bg-amber-100 transition"
+              className="bg-slate-200 text-slate-950 py-2 px-4 rounded-lg hover:bg-slate-100 transition"
             >
               {t("guideCards.essentialParis.buyNow")}
             </Link>
@@ -54,7 +54,7 @@ const TravelGuides = () => {
 
         {/* Hidden Paris Guide */}
         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-          <h2 className="text-2xl font-semibold text-orange-950 mb-4">
+          <h2 className="text-2xl font-semibold text-slate-950 mb-4">
             {t("guideCards.hiddenParis.title")}
           </h2>
           <p className="text-gray-700 mb-4">
@@ -66,13 +66,13 @@ const TravelGuides = () => {
           <div className="flex justify-between items-center">
             <a
               href="#hidden"
-              className="block text-center bg-orange-950 text-white py-2 px-4 rounded-lg hover:bg-orange-800 transition"
+              className="block text-center bg-slate-950 text-white py-2 px-4 rounded-lg hover:bg-slate-800 transition"
             >
               {t("guideCards.hiddenParis.learnMore")}
             </a>
             <Link
               href="/guide/hidden-paris-guide"
-              className="bg-amber-200 text-amber-950 py-2 px-4 rounded-lg hover:bg-amber-100 transition"
+              className="bg-slate-200 text-slate-950 py-2 px-4 rounded-lg hover:bg-slate-100 transition"
             >
               {t("guideCards.hiddenParis.buyNow")}
             </Link>
@@ -81,7 +81,7 @@ const TravelGuides = () => {
 
         {/* Luxury Paris Guide */}
         <div className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
-          <h2 className="text-2xl font-semibold text-orange-950 mb-4">
+          <h2 className="text-2xl font-semibold text-slate-950 mb-4">
             {t("guideCards.luxuryParis.title")}
           </h2>
           <p className="text-gray-700 mb-4">
@@ -93,13 +93,13 @@ const TravelGuides = () => {
           <div className="flex justify-between items-center">
             <a
               href="#luxury"
-              className="block text-center bg-orange-950 text-white py-2 px-4 rounded-lg hover:bg-orange-800 transition"
+              className="block text-center bg-slate-950 text-white py-2 px-4 rounded-lg hover:bg-slate-800 transition"
             >
               {t("guideCards.luxuryParis.learnMore")}
             </a>
             <Link
               href="/guide/luxury-paris-guide"
-              className="bg-amber-200 text-amber-950 py-2 px-4 rounded-lg hover:bg-amber-100 transition"
+              className="bg-slate-200 text-slate-950 py-2 px-4 rounded-lg hover:bg-slate-100 transition"
             >
               {t("guideCards.luxuryParis.buyNow")}
             </Link>
@@ -108,7 +108,7 @@ const TravelGuides = () => {
       </div>
 
       <div className="mt-12 text-center">
-        <h3 className="text-3xl font-semibold text-orange-950">
+        <h3 className="text-3xl font-semibold text-slate-950">
           {t("whyChoose.title")}
         </h3>
         <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
@@ -126,7 +126,7 @@ const TravelGuides = () => {
 
       {/* Guide Details Sections */}
       <div id="essential" className="mt-12 pt-12 border-t border-gray-300">
-        <h2 className="text-3xl font-bold text-orange-950">
+        <h2 className="text-3xl font-bold text-slate-950">
           {t("guideDetails.essential.title")}
         </h2>
         <p className="text-gray-600 mt-4">
@@ -140,7 +140,7 @@ const TravelGuides = () => {
       </div>
 
       <div id="hidden" className="mt-12 pt-12 border-t border-gray-300">
-        <h2 className="text-3xl font-bold text-orange-950">
+        <h2 className="text-3xl font-bold text-slate-950">
           {t("guideDetails.hidden.title")}
         </h2>
         <p className="text-gray-600 mt-4">
@@ -154,7 +154,7 @@ const TravelGuides = () => {
       </div>
 
       <div id="luxury" className="mt-12 pt-12 border-t border-gray-300">
-        <h2 className="text-3xl font-bold text-orange-950">
+        <h2 className="text-3xl font-bold text-slate-950">
           {t("guideDetails.luxury.title")}
         </h2>
         <p className="text-gray-600 mt-4">

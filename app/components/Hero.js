@@ -30,13 +30,13 @@ const Hero = () => {
           <Link
             href="https://instagram.com"
             target="_blank"
-            className="rounded p-2 bg-orange-950 text-white text-center"
+            className="rounded p-2 bg-slate-950 text-white text-center"
           >
             {t("followUs")}
           </Link>
           <Link
             href="/guide"
-            className="rounded p-2 border border-orange-950 text-orange-950 bg-slate-50 text-center"
+            className="rounded p-2 border border-slate-950 text-slate-950 bg-slate-50 text-center"
           >
             {t("shopGuide")}
           </Link>
