@@ -1,31 +1,25 @@
 import Reel from "./Reel";
-import {getTranslations} from 'next-intl/server'
+import { getTranslations } from "next-intl/server";
 
-const fetchReels = async () => {
-  const { INSTAGRAM_ACCESS_TOKEN, INSTAGRAM_USER_ID, INSTAGRAM_USER_NAME } =
-    process.env;
-  const url = `https://graph.facebook.com/v21.0/${INSTAGRAM_USER_ID}?fields=business_discovery.username(${INSTAGRAM_USER_NAME}){followers_count,media_count,media{id,caption,like_count,comments_count,timestamp,username,media_product_type,media_type,media_url}}&access_token=${INSTAGRAM_ACCESS_TOKEN}`;
-
-  try {
-    const response = await fetch(url);
-    const data = await response.json();
-    console.log(data);
-    return data.data || [];
-  } catch (error) {
-    console.error("Error fetching Reels:", error);
-  }
+const fetchReels = async (instagramUserId, accessToken) => {
+  const url = `https://graph.facebook.com/v22.0/${instagramUserId}/media?fields=id,media_type,media_url,thumbnail_url,caption,timestamp&access_token=${accessToken}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  return data.data.filter((item) => item.media_type === "VIDEO"); // Filter for Reels (videos)
 };
 
 const LatestReels = async () => {
-  const t = await getTranslations('LatestReels');
+  const t = await getTranslations("LatestReels");
+  const reels = ["DFV6KXGoRm4", "DFMsR5XIFW0", "DEX-lSJobIV", "DCzs-nQR7qC"];
+
   return (
     <section className="container mx-auto p-4 py-16">
       <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-950 text-center">
-        {t('title')}
+        {t("title")}
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 my-8">
-        {[1, 2, 3, 4].map((n) => (
-          <Reel key={n} src={`/reels/r${n}.mp4`} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 my-8">
+        {reels.map((id) => (
+          <Reel key={id} id={id} />
         ))}
       </div>
     </section>
