@@ -10,14 +10,14 @@ const fetchReels = async (instagramUserId, accessToken) => {
 
 const LatestReels = async () => {
   const t = await getTranslations("LatestReels");
-  const reels = ["DFV6KXGoRm4", "DFMsR5XIFW0", "DEX-lSJobIV", "DCzs-nQR7qC"];
+  const reels = ["DFV6KXGoRm4", "DFMsR5XIFW0", "DEX-lSJobIV"];
 
   return (
     <section className="container mx-auto p-4 py-16">
       <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-950 text-center">
         {t("title")}
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6 my-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 my-8">
         {reels.map((id) => (
           <Reel key={id} id={id} />
         ))}
