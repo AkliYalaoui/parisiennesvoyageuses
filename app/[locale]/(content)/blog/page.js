@@ -1,5 +1,5 @@
 import { createClient } from "@/app/config/supabaseServerClient";
-import Link from "next/link";
+import { Link } from "@/i18n/routing";
 import { FaSearch } from "react-icons/fa";
 
 const Blogs = async ({ searchParams }) => {
@@ -50,7 +50,7 @@ const Blogs = async ({ searchParams }) => {
       {/* Search and Sort Controls */}
       <form
         method="get"
-        action="/content/blog"
+        action="/blog"
         className="flex flex-col md:flex-row justify-between items-center bg-amber-100 p-4 rounded-lg shadow mb-8"
       >
         {/* Search Bar */}
@@ -120,7 +120,7 @@ const Blogs = async ({ searchParams }) => {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog) => (
             <Link
-              href={`/content/blog/${blog.id}`}
+              href={`/blog/${blog.id}`}
               key={blog.id}
               className="group block rounded-lg shadow-lg overflow-hidden bg-white hover:shadow-xl transition-shadow duration-300"
             >
@@ -152,7 +152,7 @@ const Blogs = async ({ searchParams }) => {
       {/* Pagination Controls */}
       <div className="flex justify-center items-center mt-12 space-x-4">
         <Link
-          href={`/content/blog?page=${Math.max(
+          href={`/blog?page=${Math.max(
             currentPage - 1,
             1
           )}&search=${searchQuery}&sort=${sortOrder}`}
@@ -166,7 +166,7 @@ const Blogs = async ({ searchParams }) => {
           Page {currentPage} of {totalPages}
         </span>
         <Link
-          href={`/content/blog?page=${Math.min(
+          href={`/blog?page=${Math.min(
             currentPage + 1,
             totalPages
           )}&search=${searchQuery}&sort=${sortOrder}`}
