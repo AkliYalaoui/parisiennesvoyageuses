@@ -5,6 +5,8 @@ import { createClient } from "@/app/config/supabaseBrowserClient";
 import { FaSave, FaTimes } from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
+import { translateText } from "@/app/lib/translateblogs";
+import slugify from "slugify";
 
 // Dynamically import the Editor component with SSR disabled
 const Editor = dynamic(() => import("@/app/components/Editor"), { ssr: false });
@@ -50,19 +52,70 @@ const CreateBlog = () => {
 
     setLoading(true);
 
-    const { error } = await supabase.from("posts").insert([
+    const slug = slugify(title, { lower: true, strict: true }); // Generate slug
+    // Insert the base post into `posts` table
+    const { data: post, error: postError } = await supabase
+      .from("posts")
+      .insert([{ slug, image_url: imageUrl }])
+      .select("id")
+      .single();
+
+    if (postError) {
+      setError("Error creating blog. Please try again.");
+      setLoading(false);
+      return;
+    }
+
+    const postId = post.id; // Get the newly created post ID
+
+    // Generate the main post (English)
+    let blogEntries = [
       {
+        blog_id: postId,
         title,
         content,
-        image_url: imageUrl,
         tags,
+        lang: "en", // English as the base language
       },
-    ]);
+    ];
+
+    const languages = [
+      { code: "en", name: "English" }, // 🇬🇧 English
+      { code: "fr", name: "French" }, // 🇫🇷 Français
+      { code: "ko", name: "Korean" }, // 🇰🇷 한국어
+      { code: "zh", name: "Chinese" }, // 🇨🇳 中文
+      { code: "de", name: "German" }, // 🇩🇪 Deutsch
+      { code: "es", name: "Spanish" }, // 🇪🇸 Español
+      { code: "it", name: "Italian" }, // 🇮🇹 Italiano
+      { code: "ja", name: "Japanese" }, // 🇯🇵 日本語
+      { code: "ar", name: "Arabic" }, // 🇸🇦 العربية
+      { code: "pt", name: "Portuguese" }, // 🇵🇹 Português
+    ];
+
+    // Translate and create separate entries for each language
+    for (const lang of languages.filter((l) => l.code !== "en")) {
+      const translatedTitle = await translateText(title, lang.name);
+      const translatedContent = await translateText(content, lang.name);
+      const translatedTags = tags ? await translateText(tags, lang.name) : "";
+
+      blogEntries.push({
+        blog_id: postId,
+        title: translatedTitle,
+        content: translatedContent,
+        tags: translatedTags,
+        lang: lang.code,
+      });
+    }
+
+    // Insert all translations into Supabase
+    const { error: translationError } = await supabase
+      .from("translations")
+      .insert(blogEntries);
 
     setLoading(false);
 
-    if (error) {
-      setError("Error creating blog. Please try again.");
+    if (translationError) {
+      setError("Error saving translations. Please try again.");
       return;
     }
 

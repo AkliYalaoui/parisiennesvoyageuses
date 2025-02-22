@@ -26,20 +26,20 @@ const Blogs = () => {
       const supabase = createClient();
       const from = (currentPage - 1) * postsPerPage;
       const to = from + postsPerPage - 1;
-      console.log(locale);
 
       let blogQuery = supabase
         .from("posts")
-        .select("*", { count: "exact" })
-        .eq("lang", locale)
+        .select("*, translations(*)", { count: "exact" })
+        .eq("translations.lang", locale)
         .order("created_at", { ascending: sortOrder === "asc" })
         .range(from, to);
 
       if (searchQuery) {
-        blogQuery = blogQuery.ilike("title", `%${searchQuery}%`);
+        blogQuery = blogQuery.ilike("translations.title", `%${searchQuery}%`);
       }
 
       const { data, error } = await blogQuery;
+      
       const { count } = await supabase
         .from("posts")
         .select("*", { count: "exact" });
@@ -47,7 +47,7 @@ const Blogs = () => {
       if (error) {
         setError(error.message);
       } else {
-        setBlogs(data);
+        setBlogs(data.filter(blog => blog.translations.length > 0));
         setCount(count);
       }
       setLoading(false);
@@ -133,26 +133,26 @@ const Blogs = () => {
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog) => (
             <Link
-              href={`/blog/${blog.id}`}
+              href={`/blog/${blog.slug}`}
               key={blog.id}
               className="group block rounded-lg shadow-lg overflow-hidden bg-white hover:shadow-xl transition-shadow duration-300"
             >
               {blog.image_url && (
                 <img
                   src={blog.image_url}
-                  alt={blog.title}
+                  alt={blog.translations[0].title}
                   className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
                 />
               )}
               <div className="p-6">
                 <h2 className="text-2xl font-semibold text-gray-800 group-hover:text-amber-900 truncate">
-                  {blog.title}
+                  {blog.translations[0].title}
                 </h2>
                 <p className="text-gray-500 text-sm mt-2">
                   {new Date(blog.created_at).toLocaleDateString()}
                 </p>
                 <p className="mt-2 text-gray-700 line-clamp-3">
-                  {blog.content.replace(/<\/?[^>]+(>|$)/g, "").slice(0, 150)}...
+                  {blog.translations[0].content?.replace(/<\/?[^>]+(>|$)/g, "")?.slice(0, 150)}...
                 </p>
               </div>
             </Link>

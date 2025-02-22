@@ -4,14 +4,14 @@ import { createClient } from "@/app/config/supabaseServerClient";
 import { Link } from "@/i18n/routing";
 
 const BlogPage = async ({ params }) => {
-  const { blog: blogId, locale } = await params;
+  const { slug, locale } = await params;
   const supabase = await createClient();
 
   const { data: blog, error } = await supabase
     .from("posts")
-    .select("*")
-    .eq("id", blogId)
-    .eq("lang", locale)
+    .select("*, translations(*)")
+    .eq("slug", slug)
+    .eq("translations.lang", locale)
     .single();
 
   if (error) {
@@ -23,7 +23,7 @@ const BlogPage = async ({ params }) => {
   }
 
   // Estimate reading time (200 words per minute)
-  const words = blog.content.split(/\s+/).length;
+  const words = blog.translations[0].content.split(/\s+/).length;
   const readTime = Math.ceil(words / 200);
 
   return (
@@ -42,7 +42,7 @@ const BlogPage = async ({ params }) => {
         )}
 
         <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mt-6">
-          {blog.title}
+          {blog.translations[0].title}
         </h1>
 
         {/* Read Time */}
@@ -53,7 +53,7 @@ const BlogPage = async ({ params }) => {
         {/* Tags */}
         {blog.tags && (
           <div className="mt-4 flex flex-wrap gap-2">
-            {blog.tags.split(",").map((tag, index) => (
+            {blog.translations[0].tags.split(",").map((tag, index) => (
               <span
                 key={index}
                 className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full"
@@ -67,7 +67,7 @@ const BlogPage = async ({ params }) => {
         {/* Blog Content */}
         <div
           className="mt-6 prose prose-lg max-w-none text-gray-700 leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: blog.content }}
+          dangerouslySetInnerHTML={{ __html: blog.translations[0].content }}
         />
 
         {/* Back Button */}

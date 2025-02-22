@@ -5,6 +5,8 @@ import { createClient } from "@/app/config/supabaseBrowserClient";
 import { FaImage, FaSave, FaTimes } from "react-icons/fa";
 import { useRouter, useParams } from "next/navigation";
 import Editor from "@/app/components/Editor";
+import { translateText } from "@/app/lib/translateblogs";
+import slugify from "slugify";
 
 const EditBlog = () => {
   const supabase = createClient();
@@ -25,7 +27,8 @@ const EditBlog = () => {
       setLoading(true);
       const { data, error } = await supabase
         .from("posts")
-        .select("*")
+        .select("*, translations(*)")
+        .eq("translations.lang", "en")
         .eq("id", blogId)
         .single();
 
@@ -36,10 +39,10 @@ const EditBlog = () => {
         return;
       }
 
-      setTitle(data.title);
-      setContent(data.content);
+      setTitle(data.translations[0].title);
+      setContent(data.translations[0].content);
       setImageUrl(data.image_url);
-      setTags(data.tags || "");
+      setTags(data.translations[0].tags || "");
     };
 
     fetchBlog();
@@ -62,9 +65,8 @@ const EditBlog = () => {
       return;
     }
 
-    const url = supabase.storage
-      .from("posts_cover")
-      .getPublicUrl(fileName).data?.publicUrl;
+    const url = supabase.storage.from("posts_cover").getPublicUrl(fileName)
+      .data?.publicUrl;
     setImageUrl(url);
     setLoading(false);
   };
@@ -80,20 +82,71 @@ const EditBlog = () => {
 
     setLoading(true);
 
+    const slug = slugify(title, { lower: true, strict: true }); // update slug
+
     const { error } = await supabase
       .from("posts")
       .update({
-        title,
-        content,
         image_url: imageUrl,
-        tags,
+        slug,
       })
       .eq("id", blogId);
 
-    setLoading(false);
-
     if (error) {
       setError("Error updating blog. Please try again.");
+      return;
+    }
+
+    // Update the translations for all languages
+    const languages = [
+      { code: "en", name: "English" },
+      { code: "fr", name: "French" },
+      { code: "ko", name: "Korean" },
+      { code: "zh", name: "Chinese" },
+      { code: "de", name: "German" },
+      { code: "es", name: "Spanish" },
+      { code: "it", name: "Italian" },
+      { code: "ja", name: "Japanese" },
+      { code: "ar", name: "Arabic" },
+      { code: "pt", name: "Portuguese" },
+    ];
+
+    let translationUpdates = [
+      {
+        blog_id: blogId,
+        title,
+        content,
+        tags,
+        lang: "en", // English as the base language
+      },
+    ];
+
+    // Generate the translations for each language
+    for (const lang of languages.filter((l) => l.code !== "en")) {
+      const translatedTitle = await translateText(title, lang.name);
+      const translatedContent = await translateText(content, lang.name);
+      const translatedTags = tags ? await translateText(tags, lang.name) : "";
+
+      translationUpdates.push({
+        blog_id: blogId,
+        title: translatedTitle,
+        content: translatedContent,
+        tags: translatedTags,
+        lang: lang.code,
+      });
+    }
+
+    // Update the translations in Supabase
+    const { error: translationsError } = await supabase
+      .from("translations")
+      .upsert(translationUpdates, { onConflict: ["blog_id", "lang"] });
+
+    setLoading(false);
+
+    if (translationsError) {
+      console.log(translationsError);
+    
+      setError("Error updating  translations. Please try again.");
       return;
     }
 
@@ -163,7 +216,10 @@ const EditBlog = () => {
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Title */}
           <div>
-            <label htmlFor="title" className="block text-gray-700 font-semibold">
+            <label
+              htmlFor="title"
+              className="block text-gray-700 font-semibold"
+            >
               Title *
             </label>
             <input
@@ -203,7 +259,10 @@ const EditBlog = () => {
 
           {/* Content */}
           <div>
-            <label htmlFor="content" className="block text-gray-700 font-semibold">
+            <label
+              htmlFor="content"
+              className="block text-gray-700 font-semibold"
+            >
               Content *
             </label>
             <Editor value={content} onChange={setContent} />

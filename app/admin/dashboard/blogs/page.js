@@ -27,14 +27,15 @@ const BlogsPage = () => {
     try {
       const { data, error, count } = await supabase
         .from("posts")
-        .select("*", { count: "exact" })
-        .ilike("title", `%${searchTerm}%`)
+        .select("*, translations(*)", { count: "exact" })
+        .eq("translations.lang", "en")
+        .ilike("translations.title", `%${searchTerm}%`)
         .order(sortBy, { ascending: true })
         .range((currentPage - 1) * pageSize, currentPage * pageSize - 1);
 
       if (error) throw error;
 
-      setBlogs(data);
+      setBlogs(data.filter(blog => blog.translations.length > 0));
       setTotalPages(Math.ceil(count / pageSize));
     } catch (error) {
       setError("Failed to fetch blogs. Please try again later.");
@@ -152,7 +153,7 @@ const BlogsPage = () => {
                   key={blog.id}
                   className={index % 2 === 0 ? "bg-white" : "bg-gray-50"}
                 >
-                  <td className="border px-6 py-4 text-ellipsis">{blog.title}</td>
+                  <td className="border px-6 py-4 text-ellipsis">{blog.translations[0].title}</td>
                   <td className="border px-6 py-4 text-ellipsis">
                     {new Date(blog.created_at).toLocaleDateString()}
                   </td>
