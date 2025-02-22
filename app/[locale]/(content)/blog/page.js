@@ -1,38 +1,70 @@
-import { createClient } from "@/app/config/supabaseServerClient";
-import { Link } from "@/i18n/routing";
+"use client";
+
+import { useState, useEffect } from "react";
+import { createClient } from "@/app/config/supabaseBrowserClient";
+import { useSearchParams, useParams } from "next/navigation";
+import { Link, useRouter } from "@/i18n/routing";
 import { FaSearch } from "react-icons/fa";
 
-const Blogs = async ({ searchParams }) => {
-  const query = (await searchParams).query;
+const Blogs = () => {
+  const { locale } = useParams();
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  const [blogs, setBlogs] = useState([]);
+  const [count, setCount] = useState(0);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  const supabase = await createClient();
-  // Get query parameters for search, sort, and pagination
-  const searchQuery = query?.search || "";
-  const sortOrder = query?.sort || "desc";
-  const currentPage = parseInt(query?.page || "1", 10);
+  const searchQuery = searchParams.get("search") || "";
+  const sortOrder = searchParams.get("sort") || "desc";
+  const currentPage = parseInt(searchParams.get("page") || "1", 10);
   const postsPerPage = 6;
 
-  const from = (currentPage - 1) * postsPerPage;
-  const to = from + postsPerPage - 1;
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      setLoading(true);
+      const supabase = createClient();
+      const from = (currentPage - 1) * postsPerPage;
+      const to = from + postsPerPage - 1;
+      console.log(locale);
 
-  // Fetch blogs from Supabase
-  let blogQuery = supabase
-    .from("posts")
-    .select("*", { count: "exact" })
-    .order("created_at", { ascending: sortOrder === "asc" })
-    .range(from, to);
+      let blogQuery = supabase
+        .from("posts")
+        .select("*", { count: "exact" })
+        .eq("lang", locale)
+        .order("created_at", { ascending: sortOrder === "asc" })
+        .range(from, to);
 
-  if (searchQuery) {
-    blogQuery = blogQuery.ilike("title", `%${searchQuery}%`);
-  }
+      if (searchQuery) {
+        blogQuery = blogQuery.ilike("title", `%${searchQuery}%`);
+      }
 
-  const { data: blogs, count, error } = await blogQuery;
+      const { data, error } = await blogQuery;
+      const { count } = await supabase
+        .from("posts")
+        .select("*", { count: "exact" });
+
+      if (error) {
+        setError(error.message);
+      } else {
+        setBlogs(data);
+        setCount(count);
+      }
+      setLoading(false);
+    };
+
+    fetchBlogs();
+  }, [searchQuery, sortOrder, currentPage]);
 
   const totalPages = Math.ceil(count / postsPerPage);
-  if (error) {
-    console.error("Error fetching blogs:", error);
-    return { props: { blogs: [], count: 0, currentPage, totalPages: 1 } };
-  }
+
+  // Handle search form submission
+  const handleSearch = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const newSearch = formData.get("search");
+    router.push(`/blog?search=${newSearch}&sort=${sortOrder}&page=1`);
+  };
 
   return (
     <section className="max-w-7xl mx-auto px-6">
@@ -41,19 +73,14 @@ const Blogs = async ({ searchParams }) => {
       </h1>
       <p className="text-center text-xl text-gray-600 mb-12 max-w-4xl mx-auto">
         Welcome to our travel blog! We're excited to share our adventures, tips,
-        and stories from around the globe. Here, you'll find more than just
-        photos—we're bringing you the real experiences, hidden gems, and
-        everything that inspires us along the way. Let's discover the world
-        together!
+        and stories from around the globe.
       </p>
 
       {/* Search and Sort Controls */}
       <form
-        method="get"
-        action="/blog"
+        onSubmit={handleSearch}
         className="flex flex-col md:flex-row justify-between items-center bg-amber-100 p-4 rounded-lg shadow mb-8"
       >
-        {/* Search Bar */}
         <div className="relative w-full md:w-1/3 mb-4 md:mb-0">
           <input
             type="text"
@@ -66,57 +93,43 @@ const Blogs = async ({ searchParams }) => {
             <FaSearch size={18} />
           </span>
         </div>
-
         {/* Sorting Options */}
         <div className="flex items-center space-x-6 mb-4 md:mb-0">
-          <div className="flex items-center">
-            <input
-              type="radio"
-              name="sort"
-              value="desc"
-              id="desc"
-              defaultChecked={sortOrder === "desc"}
-              className="hidden"
-            />
-            <label
-              htmlFor="desc"
-              className="flex items-center space-x-2 cursor-pointer"
-            >
-              <span
-                className={`w-4 h-4 rounded-full border-2 ${
-                  sortOrder === "desc" ? "bg-amber-900" : "border-gray-400"
-                }`}
-              ></span>
-              <span className="text-gray-700">Newest First</span>
-            </label>
-          </div>
-
-          <div className="flex items-center">
-            <input
-              type="radio"
-              name="sort"
-              value="asc"
-              id="asc"
-              defaultChecked={sortOrder === "asc"}
-              className="hidden"
-            />
-            <label
-              htmlFor="asc"
-              className="flex items-center space-x-2 cursor-pointer"
-            >
-              <span
-                className={`w-4 h-4 rounded-full border-2 ${
-                  sortOrder === "asc" ? "bg-amber-900" : "border-gray-400"
-                }`}
-              ></span>
-              <span className="text-gray-700">Oldest First</span>
-            </label>
-          </div>
+          <button
+            type="button"
+            onClick={() =>
+              router.push(`/blog?search=${searchQuery}&sort=desc&page=1`)
+            }
+            className={`px-4 py-2 rounded-lg ${
+              sortOrder === "desc"
+                ? "bg-amber-900 text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+            }`}
+          >
+            Newest First
+          </button>
+          <button
+            type="button"
+            onClick={() =>
+              router.push(`/blog?search=${searchQuery}&sort=asc&page=1`)
+            }
+            className={`px-4 py-2 rounded-lg ${
+              sortOrder === "asc"
+                ? "bg-amber-900 text-white"
+                : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+            }`}
+          >
+            Oldest First
+          </button>
         </div>
       </form>
 
       {/* Blogs Grid */}
-      {blogs.length > 0 ? (
+      {loading ? (
+        <p className="text-center text-gray-500">Loading blogs...</p>
+      ) : error ? (
+        <p className="text-center text-red-500">Error: {error}</p>
+      ) : blogs.length > 0 ? (
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {blogs.map((blog) => (
             <Link

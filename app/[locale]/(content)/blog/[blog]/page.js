@@ -4,13 +4,14 @@ import { createClient } from "@/app/config/supabaseServerClient";
 import { Link } from "@/i18n/routing";
 
 const BlogPage = async ({ params }) => {
-  const blogId = (await params).blog;
+  const { blog: blogId, locale } = await params;
   const supabase = await createClient();
 
   const { data: blog, error } = await supabase
     .from("posts")
     .select("*")
     .eq("id", blogId)
+    .eq("lang", locale)
     .single();
 
   if (error) {
