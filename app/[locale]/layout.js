@@ -1,4 +1,4 @@
-import { Playfair_Display } from "@next/font/google";
+import { Playfair_Display } from "next/font/google";
 import "../globals.css";
 import Footer from "@/app/components/Footer";
 import { NextIntlClientProvider } from "next-intl";
