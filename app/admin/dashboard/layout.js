@@ -87,7 +87,7 @@ export default function DashboardLayout({ children }) {
               </li>
               <li>
                 <Link
-                  href="/admin/dashboard/blogs"
+                  href="/admin/dashboard/invoices"
                   className="flex items-center hover:bg-gray-200 px-4 py-3"
                 >
                   <FaFileInvoiceDollar className="text-amber-950" size={20} />

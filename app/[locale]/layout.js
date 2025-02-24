@@ -1,4 +1,4 @@
-import { Nunito } from "next/font/google";
+import { Playfair_Display } from "@next/font/google";
 import "../globals.css";
 import Footer from "@/app/components/Footer";
 import { NextIntlClientProvider } from "next-intl";
@@ -6,9 +6,9 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
 
-const nunito = Nunito({
-  weight: ["400", "700"],
+const playfair = Playfair_Display({
   subsets: ["latin"],
+  weight: ["400", "700"],
 });
 
 export const metadata = {
@@ -25,11 +25,11 @@ export default async function RootLayout({ children, params }) {
   if (!routing.locales.includes(locale)) {
     notFound();
   }
-  const direction = locale === 'ar' ? 'rtl' : 'ltr';
+  const direction = locale === "ar" ? "rtl" : "ltr";
   const messages = await getMessages();
   return (
     <html lang={locale} dir={direction}>
-      <body className={nunito.className}>
+      <body className={`${playfair.className}`}>
         <NextIntlClientProvider messages={messages}>
           {children}
         </NextIntlClientProvider>

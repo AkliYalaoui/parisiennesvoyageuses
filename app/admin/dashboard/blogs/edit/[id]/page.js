@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { createClient } from "@/app/config/supabaseBrowserClient";
-import { FaImage, FaSave, FaTimes } from "react-icons/fa";
+import { FaSave, FaTimes } from "react-icons/fa";
 import { useRouter, useParams } from "next/navigation";
 import Editor from "@/app/components/Editor";
 import { translateText } from "@/app/lib/translateblogs";
@@ -102,13 +102,7 @@ const EditBlog = () => {
       { code: "en", name: "English" },
       { code: "fr", name: "French" },
       { code: "ko", name: "Korean" },
-      { code: "zh", name: "Chinese" },
-      { code: "de", name: "German" },
-      { code: "es", name: "Spanish" },
-      { code: "it", name: "Italian" },
-      { code: "ja", name: "Japanese" },
-      { code: "ar", name: "Arabic" },
-      { code: "pt", name: "Portuguese" },
+      { code: "ja", name: "Japanese" }
     ];
 
     let translationUpdates = [

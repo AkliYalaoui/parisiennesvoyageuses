@@ -10,6 +10,12 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        coffee: '#614D47',
+        peach: '#FFEEE2',
+        warmbrown: '#A0816A',
+        softpink: '#f78da7',
+        softblue: '#E9FBFF',
+        softyellow: '#fff9c4',
       },
     },
   },

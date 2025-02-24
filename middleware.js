@@ -15,5 +15,5 @@ export async function middleware(request) {
 
 
 export const config = {
-  matcher:  ['/', '/(fr|en|zh|ko|es|de|it|pt|ja|ar)/:path*', "/admin/dashboard/:path*"],
+  matcher:  ['/', '/(fr|en|ko|ja)/:path*', "/admin/dashboard/:path*"],
 };

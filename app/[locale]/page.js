@@ -10,7 +10,7 @@ const HomePage = async  ({params}) => {
   const locale = (await params).locale;
   return (
     <>
-      <div className="relative h-screen overflow-hidden">
+      <div className="relative">
         <NavBar locale={locale} />
         <Hero/>
       </div>

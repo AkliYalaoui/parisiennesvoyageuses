@@ -83,13 +83,7 @@ const CreateBlog = () => {
       { code: "en", name: "English" }, // 🇬🇧 English
       { code: "fr", name: "French" }, // 🇫🇷 Français
       { code: "ko", name: "Korean" }, // 🇰🇷 한국어
-      { code: "zh", name: "Chinese" }, // 🇨🇳 中文
-      { code: "de", name: "German" }, // 🇩🇪 Deutsch
-      { code: "es", name: "Spanish" }, // 🇪🇸 Español
-      { code: "it", name: "Italian" }, // 🇮🇹 Italiano
       { code: "ja", name: "Japanese" }, // 🇯🇵 日本語
-      { code: "ar", name: "Arabic" }, // 🇸🇦 العربية
-      { code: "pt", name: "Portuguese" }, // 🇵🇹 Português
     ];
 
     // Translate and create separate entries for each language
