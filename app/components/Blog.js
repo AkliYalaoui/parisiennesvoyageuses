@@ -20,15 +20,15 @@ const Blog = () => {
           </div>
 
           <div className="flex-1 text-center lg:text-left">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-coffee mb-4">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-coffee mb-4">
               {t('title')}
             </h2>
-            <p className="text-lg text-warmbrown mb-6">
+            <p className=" text-warmbrown mb-6">
               {t('desc')}
             </p>
             <Link
               href="/blog"
-              className="px-5 py-3 bg-softpink text-peach font-bold text-lg rounded-lg shadow-lg hover:bg-pink-400 transition-all duration-300"
+              className="p-2 bg-coffee text-peach rounded-lg shadow-lg hover:bg-warmbrown transition-all duration-300"
             >
               {t('button')}
             </Link>
