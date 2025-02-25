@@ -8,7 +8,7 @@ const layout = async ({ children, params }) => {
         <NavBar locale={locale} />
       </div>
       <main >
-        <div className="container mx-auto py-36">{children}</div>
+        <div className="py-36">{children}</div>
       </main>
     </>
   );

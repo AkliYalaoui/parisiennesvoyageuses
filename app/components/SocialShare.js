@@ -1,6 +1,6 @@
 "use client";
 
-import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaLinkedin, FaWhatsapp, FaShareAlt } from "react-icons/fa";
 
 const SocialShare = ({ title }) => {
   const shareUrl = encodeURIComponent(window.location.href);
@@ -13,13 +13,13 @@ const SocialShare = ({ title }) => {
   };
   return (
     <>
-      <h3 className="text-lg font-semibold text-gray-700">Share this Blog</h3>
       <div className="flex space-x-4">
+        <FaShareAlt className="text-gray-400"/>
         <a
           href={socialLinks.twitter}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500 text-2xl hover:text-blue-700"
+          className="text-blue-500 hover:text-blue-700"
         >
           <FaTwitter />
         </a>
@@ -27,7 +27,7 @@ const SocialShare = ({ title }) => {
           href={socialLinks.facebook}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 text-2xl hover:text-blue-800"
+          className="text-blue-600 hover:text-blue-800"
         >
           <FaFacebook />
         </a>
@@ -35,7 +35,7 @@ const SocialShare = ({ title }) => {
           href={socialLinks.linkedin}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-700 text-2xl hover:text-blue-900"
+          className="text-blue-700 hover:text-blue-900"
         >
           <FaLinkedin />
         </a>
@@ -43,7 +43,7 @@ const SocialShare = ({ title }) => {
           href={socialLinks.whatsapp}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-green-600 text-2xl hover:text-green-800"
+          className="text-green-600 hover:text-green-800"
         >
           <FaWhatsapp />
         </a>

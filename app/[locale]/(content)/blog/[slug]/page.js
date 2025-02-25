@@ -27,62 +27,62 @@ const BlogPage = async ({ params }) => {
   const readTime = Math.ceil(words / 200);
 
   return (
-    <div className="relative max-w-6xl mx-auto px-6 py-10 flex flex-col lg:flex-row gap-8">
-      <ProgressReader />
-      {/* Blog Content Section */}
-      <div className="lg:w-3/4">
-        {blog.image_url && (
-          <div className="w-full h-64 md:h-96 overflow-hidden rounded-lg shadow-lg">
-            <img
-              src={blog.image_url}
-              alt="Blog Cover"
-              className="w-full h-full object-cover"
-            />
+    <div>
+      <div className="bg-peach h-32 -mt-10 md:mt-0"></div>
+      <div className="relative max-w-5xl mx-auto px-6 py-10 transform -translate-y-32">
+        <ProgressReader />
+        <div>
+          {blog.image_url && (
+            <div className="w-full h-64 md:h-96 overflow-hidden rounded-lg shadow-lg">
+              <img
+                src={blog.image_url}
+                alt="Blog Cover"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          )}
+
+          <h1 className="text-3xl md:text-4xl font-bold text-coffee mt-6">
+            {blog.translations[0].title}
+          </h1>
+
+          {/* Read Time */}
+          <p className="mt-2 text-warmbrown text-sm">
+            ⏳ Estimated read time: {readTime} min
+          </p>
+
+          <div className="flex items-center justify-between flex-wrap gap-4 mt-4">
+            {/* Tags */}
+            {blog.translations[0].tags && (
+              <div className="flex flex-wrap gap-2">
+                {blog.translations[0].tags.split(",").map((tag, index) => (
+                  <span
+                    key={index}
+                    className="bg-softblue text-blue-800 text-sm font-medium p-1 rounded-full"
+                  >
+                    #{tag.trim()}
+                  </span>
+                ))}
+              </div>
+            )}
+            <SocialShare title={blog.title} />
           </div>
-        )}
+          {/* Blog Content */}
+          <div
+            className="mt-6 prose prose-lg max-w-none text-gray-700 leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: blog.translations[0].content }}
+          />
 
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mt-6">
-          {blog.translations[0].title}
-        </h1>
-
-        {/* Read Time */}
-        <p className="mt-2 text-gray-500 text-sm">
-          ⏳ Estimated read time: {readTime} min
-        </p>
-
-        {/* Tags */}
-        {blog.tags && (
-          <div className="mt-4 flex flex-wrap gap-2">
-            {blog.translations[0].tags.split(",").map((tag, index) => (
-              <span
-                key={index}
-                className="bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full"
-              >
-                #{tag.trim()}
-              </span>
-            ))}
+          {/* Back Button */}
+          <div className="mt-10">
+            <Link
+              href="/blog"
+              className="text-blue-600 hover:text-blue-800 flex items-center"
+            >
+              ← Back to Blogs
+            </Link>
           </div>
-        )}
-
-        {/* Blog Content */}
-        <div
-          className="mt-6 prose prose-lg max-w-none text-gray-700 leading-relaxed"
-          dangerouslySetInnerHTML={{ __html: blog.translations[0].content }}
-        />
-
-        {/* Back Button */}
-        <div className="mt-10">
-          <Link
-            href="/blog"
-            className="text-blue-600 hover:text-blue-800 flex items-center"
-          >
-            ← Back to Blogs
-          </Link>
         </div>
-      </div>
-
-      <div className="lg:w-1/4 flex flex-col items-center space-y-6 sticky top-20">
-        <SocialShare title={blog.title} />
       </div>
     </div>
   );
