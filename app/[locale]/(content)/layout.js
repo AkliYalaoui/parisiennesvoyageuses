@@ -7,7 +7,7 @@ const layout = async ({ children, params }) => {
       <div className="relative">
         <NavBar locale={locale} />
       </div>
-      <main className=" bg-amber-50">
+      <main >
         <div className="container mx-auto py-36">{children}</div>
       </main>
     </>

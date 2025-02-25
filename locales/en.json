@@ -125,7 +125,10 @@
         "cta2": "Discover Our Travel Guides"
     },
     "ContactPage": {
-        "title": "Contact Us",
+        "title": "Get in touch",
+        "followUs": "Follow us",
+        "WriteUs": "Write us",
+        "followIG": "follow @parisiennesvoyageuses",
         "p1": "Have a question or need assistance? We're here to help! Please fill out the form below, and our team will get back to you as soon as possible.",
         "notM": "Message was not sent",
         "m": "Message sent successfully",
