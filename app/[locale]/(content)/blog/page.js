@@ -5,6 +5,9 @@ import { createClient } from "@/app/config/supabaseBrowserClient";
 import { useSearchParams, useParams } from "next/navigation";
 import { Link, useRouter } from "@/i18n/routing";
 import { FaSearch } from "react-icons/fa";
+import { Pacifico } from "next/font/google";
+
+const pacifico = Pacifico({ weight: "400", subsets: ["latin"] });
 
 const Blogs = () => {
   const { locale } = useParams();
@@ -39,7 +42,7 @@ const Blogs = () => {
       }
 
       const { data, error } = await blogQuery;
-      
+
       const { count } = await supabase
         .from("posts")
         .select("*", { count: "exact" });
@@ -47,7 +50,7 @@ const Blogs = () => {
       if (error) {
         setError(error.message);
       } else {
-        setBlogs(data.filter(blog => blog.translations.length > 0));
+        setBlogs(data.filter((blog) => blog.translations.length > 0));
         setCount(count);
       }
       setLoading(false);
@@ -67,11 +70,13 @@ const Blogs = () => {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-6">
-      <h1 className="text-5xl font-extrabold text-center text-gray-800 mb-6 tracking-tight">
+    <section className="max-w-7xl mx-auto px-6 md:pt-20">
+      <h1
+        className={`${pacifico.className} text-4xl sm:text-5xl lg:text-6xl  font-extrabold text-center text-coffee mb-6 tracking-tight`}
+      >
         Explore the World with Us!
       </h1>
-      <p className="text-center text-xl text-gray-600 mb-12 max-w-4xl mx-auto">
+      <p className="text-center text-xl text-warmbrown mb-12 max-w-4xl mx-auto">
         Welcome to our travel blog! We're excited to share our adventures, tips,
         and stories from around the globe.
       </p>
@@ -79,7 +84,7 @@ const Blogs = () => {
       {/* Search and Sort Controls */}
       <form
         onSubmit={handleSearch}
-        className="flex flex-col md:flex-row justify-between items-center bg-amber-100 p-4 rounded-lg shadow mb-8"
+        className="flex flex-col md:flex-row justify-between items-center bg-peach p-4 rounded-lg shadow mb-8"
       >
         <div className="relative w-full md:w-1/3 mb-4 md:mb-0">
           <input
@@ -87,9 +92,9 @@ const Blogs = () => {
             name="search"
             defaultValue={searchQuery}
             placeholder="Search blogs..."
-            className="w-full p-3 pl-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500"
+            className="w-full p-3 pl-12  rounded-lg focus:outline-none focus:ring-1 focus:ring-warmbrown"
           />
-          <span className="absolute left-4 top-4 text-gray-500">
+          <span className="absolute left-4 top-4 text-coffee">
             <FaSearch size={18} />
           </span>
         </div>
@@ -102,8 +107,8 @@ const Blogs = () => {
             }
             className={`px-4 py-2 rounded-lg ${
               sortOrder === "desc"
-                ? "bg-amber-900 text-white"
-                : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+                ? "bg-coffee text-peach"
+                : "bg-gray-200 text-coffee hover:bg-gray-300"
             }`}
           >
             Newest First
@@ -115,8 +120,8 @@ const Blogs = () => {
             }
             className={`px-4 py-2 rounded-lg ${
               sortOrder === "asc"
-                ? "bg-amber-900 text-white"
-                : "bg-gray-200 text-gray-600 hover:bg-gray-300"
+                ? "bg-coffee text-peach"
+                : "bg-gray-200 text-coffee hover:bg-gray-300"
             }`}
           >
             Oldest First
@@ -145,14 +150,17 @@ const Blogs = () => {
                 />
               )}
               <div className="p-6">
-                <h2 className="text-2xl font-semibold text-gray-800 group-hover:text-amber-900 truncate">
+                <h2 className="text-2xl font-semibold text-coffee group-hover:text-warmbrown truncate">
                   {blog.translations[0].title}
                 </h2>
-                <p className="text-gray-500 text-sm mt-2">
+                <p className="text-coffee text-sm mt-2">
                   {new Date(blog.created_at).toLocaleDateString()}
                 </p>
-                <p className="mt-2 text-gray-700 line-clamp-3">
-                  {blog.translations[0].content?.replace(/<\/?[^>]+(>|$)/g, "")?.slice(0, 150)}...
+                <p className="mt-2 text-warmbrown line-clamp-3">
+                  {blog.translations[0].content
+                    ?.replace(/<\/?[^>]+(>|$)/g, "")
+                    ?.slice(0, 150)}
+                  ...
                 </p>
               </div>
             </Link>
