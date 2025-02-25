@@ -51,7 +51,6 @@ const NavBar = ({ locale }) => {
 
           <Link
             href="/"
-            target="_blank"
             className={`hidden md:block text-coffee text-2xl font-bold ${pacifico.className}`}
           >
             Parisiennes Voyageuses

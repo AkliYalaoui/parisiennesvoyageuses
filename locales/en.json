@@ -156,12 +156,11 @@
     },
     "GuidesPage": {
         "introTitle": "Explore Our Paris Travel Guides",
-        "introDescription": "Discover Paris like never before with our expertly crafted travel guides. Each guide is designed to cater to a unique travel style, ensuring a memorable and stress-free experience.",
         "introQuote": "\"Whether you're a first-time visitor, a seasoned explorer, or someone seeking luxury, we have something special just for you!\"",
         "guideCards": {
             "essentialParis": {
                 "title": "Essential Paris",
-                "description": "Perfect for first-time visitors. Includes must-see attractions, tips on transportation, and sample itineraries.",
+                "description": "Perfect for first-time visitors. Includes must-see attractions, transportation, and sample itineraries.",
                 "price": "Price: €19.99",
                 "learnMore": "Learn More",
                 "buyNow": "Buy Now"
