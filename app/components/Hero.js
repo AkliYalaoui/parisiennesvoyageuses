@@ -7,7 +7,7 @@ const Hero = () => {
   return (
     <section className="bg-peach pt-20 md:pt-40 pb-10">
       {/* Content */}
-      <div className="container mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8">
+      <div className="container mx-auto max-w-6xl px-4 pt-8 sm:px-6 lg:px-8 flex flex-col justify-center items-center text-center">
         <h1 className="text-4xl sm:text-6xl lg:text-7xl text-coffee font-bold max-w-4xl leading-tight">
           {t("headline")}
         </h1>

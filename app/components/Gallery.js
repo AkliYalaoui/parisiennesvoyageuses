@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 const Gallery = () => {
   const t = useTranslations("Gallery");
   return (
-    <section className="container mx-auto max-w-5xl p-4 mt-12">
+    <section className="container mx-auto max-w-5xl p-4">
       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-coffee">
         {t("title")}
       </h2>
