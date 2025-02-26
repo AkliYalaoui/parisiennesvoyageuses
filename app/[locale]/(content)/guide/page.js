@@ -89,7 +89,7 @@ const TravelGuides = () => {
                     {t(`guideCards.${guide}.learnMore`)}
                   </a>
                   <Link
-                    href={`/guide/${guide}`}
+                    href={`/guide/${guide == "essentialParis" ? "essential-paris-guide" : guide == "hiddenParis" ? "hidden-paris-guide" : "luxury-paris-guide"}`}
                     className="bg-softpink text-peach p-2 rounded-lg hover:bg-pink-500 transition"
                   >
                     {t(`guideCards.${guide}.buyNow`)}
@@ -104,7 +104,7 @@ const TravelGuides = () => {
         {["essential", "hidden", "luxury"].map((section) => (
           <motion.div
             key={section}
-            id={section}
+            id={`${section}Paris`}
             variants={sectionAnimation}
             initial="hidden"
             whileInView="visible"
