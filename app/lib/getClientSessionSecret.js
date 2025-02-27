@@ -45,11 +45,11 @@ export async function getClientSessionSecret(guideId, user) {
             product_data: {
               name: guide.title,
                 images: [
-                  new URL(guide.imageUrl, env.NEXT_PUBLIC_SERVER_URL).href,
+                  new URL(guide.imageUrl, process.env.NEXT_PUBLIC_SERVER_URL).href,
                 ],
               description: guide.description,
             },
-            unit_amount: guide.price * 100, // Convert to cents
+            unit_amount: Math.round(guide.price * 100), // Convert to cents
           },
         },
       ],
