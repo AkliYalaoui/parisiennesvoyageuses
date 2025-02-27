@@ -1,27 +1,30 @@
 import Stripe from "stripe";
 import { guideDetails } from "@/app/data/guide";
 import { createClient } from "@/app/config/supabaseServerClient";
-import { NextResponse } from "next/server"
+import { NextResponse } from "next/server";
+import { generateDownloadLink } from "@/app/lib/generateDownloadLink";
+import sendEmail from "@/app/lib/downloadEmail";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export async function GET(request) {
   const stripeSessionId = request.nextUrl.searchParams.get("stripeSessionId");
   let redirectUrl = "/en/guide/purchase-failure";
-  if (stripeSessionId == null) return NextResponse.redirect(new URL(redirectUrl, request.url))
+  if (stripeSessionId == null)
+    return NextResponse.redirect(new URL(redirectUrl, request.url));
 
   try {
     const checkoutSession = await stripe.checkout.sessions.retrieve(
       stripeSessionId,
       { expand: ["line_items"] }
     );
-    const guideId = await processStripeCheckout(checkoutSession);
-    redirectUrl = `/en/guide/${guideId}/purchase-success`;
+    const  {guideId, downloadUrl} = await processStripeCheckout(checkoutSession);
+    redirectUrl = `/en/guide/${guideId}/purchase-success?link=${downloadUrl}`;
   } catch (error) {
     console.error(error);
   }
 
-  return NextResponse.redirect(new URL(redirectUrl, request.url))
+  return NextResponse.redirect(new URL(redirectUrl, request.url));
 }
 
 export async function POST(request) {
@@ -62,14 +65,34 @@ async function processStripeCheckout(checkoutSession) {
   const guide = guideDetails[guideId];
   if (guide == null) throw new Error("Guide not found");
 
-  // send guide by email
+  const supabase = await createClient();
+
+  // Generate a secure one-time download link
+  const { token, expiresAt } = generateDownloadLink(guideId);
+  const downloadUrl = `${process.env.NEXT_PUBLIC_SERVER_URL}/api/download?token=${token}`;
+
+  // Save download link in Supabase
+  const { error: downloadError } = await supabase.from("downloads").insert({
+    guide_id: guideId,
+    download_token: token,
+    expires_at: expiresAt.toISOString(),
+    used: false,
+  });
+  if (downloadError) throw downloadError;
+
+  // Send the guide via email
+  await sendEmail(
+    `${userLastName} ${userFirstName}`,
+    userEmail,
+    "Your Guide is Ready!",
+    downloadUrl
+  );
 
   // Add history to supabase
-  const supabase = await createClient();
-  const {error } = await supabase.from("purchases").upsert(
+  const { error } = await supabase.from("purchases").upsert(
     {
       session_id: checkoutSession.id,
-      price_paid_in_cents: checkoutSession.amount_total || guide.price * 100,
+      price_paid_in_cents: checkoutSession.amount_total ?? guide.price * 100,
       guide: guide.title,
       user_email: userEmail,
       user_last_name: userLastName,
@@ -80,5 +103,5 @@ async function processStripeCheckout(checkoutSession) {
   );
   if (error) throw error;
 
-  return guideId;
+  return {guideId, downloadUrl};
 }

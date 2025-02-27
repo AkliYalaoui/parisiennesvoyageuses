@@ -5,7 +5,6 @@ import { guideDetails } from "../data/guide";
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
-
 export async function getClientSessionSecret(guideId, user) {
   try {
     // Validate user details
@@ -44,9 +43,10 @@ export async function getClientSessionSecret(guideId, user) {
             currency: "eur",
             product_data: {
               name: guide.title,
-                images: [
-                  new URL(guide.imageUrl, process.env.NEXT_PUBLIC_SERVER_URL).href,
-                ],
+              images: [
+                new URL(guide.imageUrl, process.env.NEXT_PUBLIC_SERVER_URL)
+                  .href,
+              ],
               description: guide.description,
             },
             unit_amount: Math.round(guide.price * 100), // Convert to cents
@@ -59,6 +59,9 @@ export async function getClientSessionSecret(guideId, user) {
       customer_email: user.email,
       payment_intent_data: {
         receipt_email: user.email,
+      },
+      invoice_creation: {
+        enabled: true,
       },
       metadata: {
         guideId,
