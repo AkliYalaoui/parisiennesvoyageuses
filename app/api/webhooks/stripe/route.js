@@ -48,6 +48,9 @@ export async function POST(request) {
 }
 
 async function processStripeCheckout(checkoutSession) {
+  console.log(checkoutSession);
+  
+  const userCountry = checkoutSession.customer_details?.address?.country ?? "";
   const userEmail = checkoutSession.metadata?.userEmail;
   const userLastName = checkoutSession.metadata?.userLastName;
   const userFirstName = checkoutSession.metadata?.userFirstName;
@@ -97,6 +100,7 @@ async function processStripeCheckout(checkoutSession) {
       user_email: userEmail,
       user_last_name: userLastName,
       user_first_name: userFirstName,
+      user_country: userCountry
     },
 
     { onConflict: "session_id" }

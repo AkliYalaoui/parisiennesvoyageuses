@@ -15,7 +15,7 @@ import Link from "next/link";
 
 export default function DashboardLayout({ children }) {
   const supabase = createClient();
-  const [isDrawerOpen, setIsDrawerOpen] = useState(true);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const router = useRouter();
 
   const toggleDrawer = () => {

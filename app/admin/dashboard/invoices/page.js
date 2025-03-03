@@ -25,6 +25,7 @@ export default function AdminPurchasesPage() {
     "first_name" : "user_first_name",
     "last_name" : "user_last_name",
     "email" : "user_email",
+    "country" : "user_country",
     "guide" : "guide",
     "amount" : "price_paid_in_cents",
     "date" : "created_at",
@@ -80,7 +81,7 @@ export default function AdminPurchasesPage() {
         <table className="w-full text-sm text-left border-collapse">
           <thead className="bg-gray-200">
             <tr>
-              {["Email", "First Name", "Last Name","Guide", "Amount", "Date"].map((col) => {
+              {["Email", "First Name", "Last Name", "Country", "Guide", "Amount", "Date"].map((col) => {
                 const key = sort_to_column[col.toLowerCase().replace(" ", "_")];
                 return (
                   <th
@@ -116,6 +117,7 @@ export default function AdminPurchasesPage() {
                   <td className="p-3">{p.user_email}</td>
                   <td className="p-3">{p.user_first_name}</td>
                   <td className="p-3">{p.user_last_name}</td>
+                  <td className="p-3">{p.user_country}</td>
                   <td className="p-3">{p.guide}</td>
                   <td className="p-3">€{(p.price_paid_in_cents / 100).toFixed(2)}</td>
                   <td className="p-3">{new Date(p.created_at).toLocaleDateString()}</td>

@@ -29,6 +29,22 @@ export default async function RootLayout({ children, params }) {
   const messages = await getMessages();
   return (
     <html lang={locale} dir={direction}>
+      <head>
+        {/* <!-- Google tag (gtag.js) --> */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-21FTFZFSKJ"
+        ></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-21FTFZFSKJ');
+          `}
+        </script>
+      </head>
       <body className={`${playfair.className}`}>
         <NextIntlClientProvider messages={messages}>
           {children}
